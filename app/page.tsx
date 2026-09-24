@@ -5,7 +5,7 @@ import Team from "./components/Team";
 
 export default function Home() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col bg-background">
       <Header />
       <About />
       <Team />

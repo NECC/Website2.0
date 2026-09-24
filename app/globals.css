@@ -1,3 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@theme {
+
+    /* Backgrounds */
+    --color-background: #161E2E;
+
+    /* Text */
+    --color-foreground: #0f172a;
+    --color-muted: #64748b;
+}
