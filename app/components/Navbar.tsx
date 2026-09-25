@@ -5,9 +5,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 const links = [
-  { label: "SOBRE", href: "/" },
-  { label: "EQUIPA", href: "/" },
-  { label: "MERCH", href: "/" },
+  { label: "EQUIPA", href: "/equipa" },
+  { label: "PARCERIAS", href: "/" },
+  { label: "LOJA", href: "/" },
 ];
 
 export default function Navbar() {

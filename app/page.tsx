@@ -3,7 +3,7 @@ import { RiArrowDownWideFill } from "react-icons/ri";
 
 export default function Home() {
   return (
-    <div className="flex flex-col bg-background">
+    <div className="bg-background">
       <div className="h-screen relative w-full overflow-hidden">
         <Image
           src="/banner.png"
@@ -36,13 +36,10 @@ export default function Home() {
         </div>
       </div>
 
-      <section className="w-full py-16 px-6 sm:px-10 lg:px-16 bg-red-600 relative z-10">
-        <div className="mx-auto w-full max-w-350 bg-emerald-500">
-          <h1 className="font-orbitron text-4xl font-bold text-white tracking-wide mb-6">
-            Hola
-          </h1>
-
-        </div>
+      <section className="w-full py-16 px-6 sm:px-10 lg:px-16 mx-auto max-w-400 bg-red-500">
+        <h1 className="text-white ">
+          Texto de exemplo para a página inicial
+        </h1>
       </section>
     </div>
   );
