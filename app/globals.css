@@ -1,9 +1,4 @@
 @import "tailwindcss";
-
-:root {
-  font-family: 'Inter', system-ui, sans-serif;
-}
-
 @theme {
     /* Backgrounds */
     --color-background: #161E2E;
@@ -18,53 +13,4 @@
     /* Fonts */
     --font-sans: var(--font-inter);
     --font-orbitron: var(--font-orbitron);
-}
-
-ol.list-about-us {
-  list-style: none;
-  display: grid;
-  width: 100%;
-  counter-reset: orderedList;
-
-  li {
-    display: grid;
-    grid-template-columns: 7rem 1fr;
-    align-items: center;
-  }
-
-  li::before {
-    counter-increment: orderedList;
-    content: counter(orderedList);
-    color: #92B4D4;
-    opacity: 0.15;
-    font-weight: 900;
-    font-size: 7rem;
-  }
-}
-
-h1.separator {
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-
-h1.separator::before, h1.separator::after {
-  content: '';
-  flex: 1;
-}
-
-h1.separator:not(:empty)::before {
-  border-bottom: 1px solid var(--color-muted);
-  border-image-slice: 1;
-  border-image-source: linear-gradient(to left, var(--color-muted), rgba(0,0,0,0));
-
-  margin-right: 1em;
-}
-
-h1.separator:not(:empty)::after {
-  border-bottom: 1px solid var(--color-muted);
-  border-image-slice: 1;
-  border-image-source: linear-gradient(to right, var(--color-muted), rgba(0,0,0,0));
-
-  margin-left: 1em;
 }
