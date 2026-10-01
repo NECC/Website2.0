@@ -11,3 +11,21 @@ export type Info = {
   icon: IconType;
   description: string;
 };
+
+export type TeamMember = {
+  role: string;
+  name: string;
+  imgUrl: string;
+};
+
+export type TeamData = {
+  direcao: TeamMember[];
+  assembleia: TeamMember[];
+  conselho: TeamMember[];
+  departamentos: {
+    pedagogico: TeamMember[];
+    comunicacao: TeamMember[];
+    desenvolvimento: TeamMember[];
+    recreativo: TeamMember[];
+  };
+};
