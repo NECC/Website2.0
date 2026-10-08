@@ -8,6 +8,8 @@
     /* Text */
     --color-foreground: #0f172a;
     --color-muted: #64748b;
+    --color-necc-cyan: #008cca;
+    --color-default: #ffffff;
 
     /* Fonts */
       --font-sans: var(--font-inter);
