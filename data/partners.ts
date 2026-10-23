@@ -2,39 +2,39 @@ import type { Partner } from "@/types/index";
 
 export const partnerData: Partner[] = [
   {
-    name: "Okulto Bar",
-    description:
-      "Depois de anos a trabalhar no setor, decidi criar o meu próprio bar.",
-    image: "/images/partners/partner1.png",
-  },
-  {
     name: "CopyScan",
-    description:
-      "Especialista em Cibersegurança, focado em testes de penetração e auditoria web.",
-    image: "/images/partners/partner2.png",
-  },
-  {
-    name: "Okulto Bar2",
-    description:
-      "Depois de anos a trabalhar no setor, decidi criar o meu próprio bar.",
     image: "/images/partners/partner1.png",
   },
   {
-    name: "CopyScan2",
-    description:
-      "Especialista em Cibersegurança, focado em testes de penetração e auditoria web.",
+    name: "Okulto Bar",
     image: "/images/partners/partner2.png",
   },
   {
-    name: "Okulto Bar3",
-    description:
-      "Depois de anos a trabalhar no setor, decidi criar o meu próprio bar.",
-    image: "/images/partners/partner1.png",
+    name: "O-Olha Óticas",
+    image: "/images/partners/partner3.png",
   },
   {
-    name: "CopyScan3",
-    description:
-      "Especialista em Cibersegurança, focado em testes de penetração e auditoria web.",
-    image: "/images/partners/partner2.png",
+    name: "Os Farias",
+    image: "/images/partners/partner4.png",
+  },
+  {
+    name: "Braga Escape Game",
+    image: "/images/partners/partner5.png",
+  },
+  {
+    name: "Sabor da Fruta",
+    image: "/images/partners/partner6.png",
+  },
+  {
+    name: "Mikado - Braga & Famalicão",
+    image: "/images/partners/partner7.png",
+  },
+  {
+    name: "Escola de Condução UM",
+    image: "/images/partners/partner8.png",
+  },
+  {
+    name: "Chip7",
+    image: "/images/partners/partner9.png",
   },
 ];

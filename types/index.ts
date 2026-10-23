@@ -2,7 +2,6 @@ import { IconType } from "react-icons";
 
 export type Partner = {
   name: string;
-  description: string;
   image: string;
 };
 

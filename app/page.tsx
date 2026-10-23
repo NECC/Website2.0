@@ -2,8 +2,9 @@ import Image from "next/image";
 import { aboutUsData, eventData } from "@/data/ladingPage";
 import { partnerData } from "@/data/partners";
 import { Info, Partner } from "@/types";
-import { FaArrowDown } from "react-icons/fa6";
 import Marquee from "react-fast-marquee";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { FaArrowRight } from "react-icons/fa";
 
 export function PartnerCard({ partner }: { partner: Partner }) {
   return (
@@ -13,7 +14,7 @@ export function PartnerCard({ partner }: { partner: Partner }) {
         alt={"Logo de " + partner.name}
         className="object-cover object-center flex-auto min-h-0 w-full"
       />
-      <p className="text-center flex-none p-2 font-semibold text-white">
+      <p className="text-center font-semibold text-white p-4">
         {partner.name}
       </p>
     </div>
@@ -68,9 +69,7 @@ const eventListItem = (info: Info, pos: number) => {
           {info.name}
         </h2>
 
-        <p className="text-xs text-[#92B4D4] lg:text-lg">
-          {info.description}
-        </p>
+        <p className="text-xs text-[#92B4D4] lg:text-lg">{info.description}</p>
       </div>
     </li>
   );
@@ -110,10 +109,9 @@ export default function Home() {
           <span className="text-sm text-white opacity-50 leading-relaxed uppercase">
             Desliza para ver mais
           </span>
-          <FaArrowDown className="text-white opacity-50 text-3xl animate-bounce" />
+          <MdOutlineKeyboardArrowDown className="text-white opacity-50 text-3xl animate-bounce" />
         </div>
       </div>
-
       <section
         className="w-full py-2 lg:py-16 px-2 sm:px-10 lg:px-16 mx-auto max-w-400
         grid lg:grid-cols-[30rem_1fr] items-center lg:gap-4"
@@ -133,7 +131,6 @@ export default function Home() {
           {aboutUsElements}
         </ol>
       </section>
-
       <section className="w-full py-2 lg:py-16 lg:px-16 mx-auto max-w-400 text-[#92B4D4]">
         <div className="flex items-center gap-6 mb-20">
           <div className="h-px flex-1 bg-linear-to-r from-transparent to-[#38547A]" />
@@ -149,7 +146,6 @@ export default function Home() {
           {eventsElements}
         </ul>
       </section>
-
       <section className="w-full py-2 lg:py-16 px-6 sm:px-10 lg:px-16 mx-auto max-w-400 ">
         <div className="flex items-center gap-6 mb-20">
           <div className="h-px flex-1 bg-linear-to-r from-transparent to-[#38547A]" />
@@ -172,82 +168,91 @@ export default function Home() {
           ))}
         </Marquee>
       </section>
-
-      <section
-        className="w-full py-2 lg:py-16 px-6 sm:px-10 lg:px-16 mx-auto max-w-400 text-[#92B4D4]
-        grid lg:grid-cols-2 grid-cols-1 gap-4"
-      >
-        <div
-          className="col-span-2 flex flex-col lg:flex-row place-content-between items-center
-        bg-linear-to-bl to-[#111827] from-[#1A2640] rounded-xl p-8"
-        >
-          <div className="flex flex-col gap-4">
-            <h2 className="font-bold lg:text-5xl text-3xl text-white mb-4">
+      <section className="mx-auto grid w-full max-w-400 grid-cols-1 gap-4 px-4 py-12 text-[#92B4D4] sm:px-8 lg:grid-cols-2 lg:gap-6 lg:px-16 lg:py-16">
+        <div className="group relative hidden flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#1A2640] to-[#111827] p-5 sm:p-8 lg:col-span-2 lg:flex lg:flex-row lg:items-center lg:p-6">
+          <div className="relative z-10 flex max-w-2xl flex-col items-start gap-4">
+            <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-5xl">
               Merchandising
             </h2>
-            <p className="max-w-240">
-              Hoodies, t-shirts, canecas e muito mais. Como sócio tens desconto
-              em todos os produtos.
+
+            <p className="max-w-xl text-sm leading-relaxed text-[#92B4D4] sm:text-base">
+              Hoodies, t-shirts, canecas e muito mais. Mostra o teu espírito
+              académico e aproveita descontos exclusivos por seres sócio do
+              NECC.
             </p>
-            <a className="p-2 bg-[#FFFFFF40] text-sm lg:text-base text-foreground2 self-start rounded-lg">
-              Merchandising
+
+            <a
+              href=""
+              className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/40 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4] hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4] sm:w-auto"
+            >
+              Explorar merchandising
+              <span><FaArrowRight /></span>
             </a>
           </div>
 
-          <div className="relative w-1/2 h-48 lg:h-72">
+          <div className="relative hidden h-64 w-80 shrink-0 lg:block">
             <Image
               src="/images/merchandising/merchandising2.png"
-              alt="Foto de um rapaz vestindo a camisa do NECC"
+              alt="Estudante a vestir uma t-shirt do NECC"
               width={196}
               height={256}
-              className="absolute w-32 lg:w-48 top-10 left-5 rotate-350 rounded-md z-20 border-solid border-4 border-[#FFFFFF10]"
+              className="absolute left-4 top-8 z-20 w-36 rounded-lg border border-white/10 object-cover shadow-xl transition-transform duration-300 group-hover:-rotate-3"
             />
+
             <Image
               src="/images/merchandising/merchandising1.png"
-              alt="Foto da camisa do NECC"
+              alt="T-shirt do NECC"
               width={196}
               height={256}
-              className="absolute w-32 lg:w-48 top-4 left-15 rotate-30 z-10 rounded-md border-solid border-4 border-[#FFFFFF10]"
+              className="absolute left-36 top-0 z-10 w-36 rounded-lg border border-white/10 object-cover shadow-xl transition-transform duration-300 group-hover:rotate-3"
             />
           </div>
         </div>
 
-        <div
-          className="flex place-content-between col-span-2 lg:col-span-1
-        bg-linear-to-bl to-[#19283F] from-[#15428C] rounded-xl p-8"
-        >
-          <div className="flex flex-col gap-4">
-            <h2 className="font-bold text-xl lg:text-3xl text-white">
-              Torna-te Sócio
+        <div className="flex flex-col gap-4 rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8 lg:h-full">
+          <div className="flex flex-1 flex-col gap-2 sm:gap-3">
+            <h2 className="text-xl font-bold text-white sm:text-2xl">
+              Torna-te sócio
             </h2>
-            <p className="max-w-88 text-sm lg:text-base">
-              Participa em todos os nossos eventos gratuitamente e usufrui de
-              benefícios exclusivos.
+
+            <p className="max-w-md text-sm leading-relaxed text-[#D0E1F3] sm:text-base">
+              Participa nos nossos eventos e usufrui de benefícios exclusivos
+              para a comunidade de Ciências da Computação.
             </p>
-            <a className="p-2 bg-[#FFFFFF40] text-sm lg:text-base text-foreground2 self-start rounded-lg">
-              Saber mais
-            </a>
           </div>
 
-          <Image
-            src="/logo.png"
-            alt="Logo NECC"
-            width={60}
-            height={60}
-            className="h-10 w-10 lg:h-15 lg:w-15"
-          />
+          <a
+            href=""
+            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg bg-white/10 px-4 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-white/20 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:w-fit sm:px-5"
+          >
+            Tornar-me sócio
+            <span>
+              <FaArrowRight />
+            </span>
+          </a>
         </div>
 
-        <div className="bg-linear-to-bl col-span-2 lg:col-span-1 to-background2 from-[#92B4D4] rounded-xl p-8 flex flex-col gap-4">
-          <h2 className="font-bold text-xl lg:text-3xl text-white">
-            Torna-te colaborador
-          </h2>
-          <p className="max-w-88 text-sm lg:text-base">
-            Faz parte de um ou mais departamentos e contribui para o
-            funcionamento do teu núcleo.
-          </p>
-          <a className="p-2 self-start bg-[#FFFFFF40] text-sm lg:text-base text-foreground2 rounded-lg shrink">
-            Saber mais
+        {/* Colaboradores — apenas desktop */}
+        <div className="hidden flex-col gap-4 rounded-2xl border border-white/10 bg-linear-to-br from-[#233047] to-[#19283F] p-5 transition-colors duration-300 hover:border-[#92B4D4]/40 sm:p-8 lg:flex lg:h-full">
+          <div className="flex flex-1 flex-col gap-2 sm:gap-3">
+            <h2 className="text-xl font-bold text-white sm:text-2xl">
+              Torna-te colaborador
+            </h2>
+
+            <p className="max-w-md text-sm leading-relaxed text-[#92B4D4] sm:text-base">
+              Junta-te a um ou mais departamentos, desenvolve novas competências
+              e ajuda a dinamizar a comunidade académica.
+            </p>
+          </div>
+
+          <a
+            href=""
+            className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4] sm:w-fit sm:px-5"
+          >
+            Tornar-me colaborador
+            <span>
+              <FaArrowRight />
+            </span>
           </a>
         </div>
       </section>
