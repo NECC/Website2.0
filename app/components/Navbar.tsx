@@ -24,14 +24,14 @@ export default function Navbar() {
   return (
     <>
       <nav className="bg-[#0D0F1A]">
-        <div className="flex items-center py-4 px-6 sm:px-10 lg:px-16 mx-auto max-w-400 ">
-          <Link href="/" className="shrink-0">
+        <div className="flex items-center py-6 px-6 sm:px-10 lg:px-16 mx-auto max-w-400 ">
+          <Link href="/ " className="mr-5">
             <Image
               src="/logo.png"
               alt="Logo NECC"
               width={60}
               height={60}
-              className="h-8 w-8"
+              className="h-8 w-8 "
             />
           </Link>
 

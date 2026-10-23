@@ -5,95 +5,104 @@ import { SiDiscord } from "react-icons/si";
 import { MdOutlineMail } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 
-const Footer = () => {
+export default function Footer() {
   return (
-    <footer className="relative w-full overflow-hidden py-16 px-8 md:px-16 lg:px-24 bg-[#171F33]">
-      <Image
-        src="/footer-bg.png"
-        alt="footer backgroud image"
-        fill
-        sizes="100vw"
-        className="object-cover opacity-75 pointer-events-none z-0 md:scale-150 object-top-right md:translate-y-1/8"
-      />
-      <div
-        className={`absolute inset-0 bg-background opacity-84 pointer-events-none z-10`}
-      />
-      <div
-        className={`max-w-7xl mx-auto flex justify-between items-start flex-col md:flex-row gap-10 relative z-20`}
-      >
-        {/* left side */}
-        <div className={`flex items-center gap-4`}>
-          <div>
-            <Image src="/logo.png" alt="NECC's logo" width={48} height={48} />
-          </div>
+    <footer
+      className="w-full overflow-hidden bg-[#171F33] bg-cover bg-top-right bg-no-repeat py-12 sm:py-16 lg:py-20"
+      style={{
+        backgroundImage:
+          "linear-gradient(rgba(23, 31, 51, 0.90), rgba(23, 31, 51, 0.8)), url('/footer-bg.png')",
+      }}
+    >
+      <div className="mx-auto flex w-full max-w-400 flex-col gap-10 px-6 sm:px-10 lg:flex-row lg:items-start lg:justify-between lg:px-16">
+        <div className="flex items-center gap-6">
+          <Image
+            src="/logo.png"
+            alt="Logótipo do NECC"
+            width={48}
+            height={48}
+            className="shrink-0"
+          />
 
           <div className="flex flex-col">
-            <h2 className={`text-xl font-bold text-default opacity-50`}>
-              NECC
-            </h2>
-            <p className={`text-sm text-default max-w-62.5 leading-snug mt-1`}>
+            <h2 className="text-xl font-bold text-white">NECC</h2>
+
+            <p className="mt-1 max-w-62.5 text-sm leading-snug text-white">
               Núcleo de Estudantes de Ciências da Computação
             </p>
           </div>
         </div>
 
-        <div className={`flex flex-col gap-8`}>
+        {/* Contactos e redes sociais */}
+        <div className="flex flex-col gap-8 sm:flex-row sm:gap-12 lg:gap-16">
+          {/* Contacto */}
           <div className="flex flex-col gap-3">
-            <h3
-              className={`text-xs font-bold tracking-[0.2em] text-white uppercase mb-1`}
-            >
+            <h3 className="mb-1 text-xs font-bold uppercase  text-[#C4D8EE]">
               Contacto
             </h3>
-            <div className="flex items-center gap-3">
-              <IoLocationOutline  size={20} className="text-white" />
-                <span className="text-sm text-white">
-                  DI sala 1.03, Universidade do Minho, Braga
-                </span>
-            </div>
-            <div className="flex items-center gap-3">
-              <MdOutlineMail size={20} className="text-white" />
 
-              <span className="text-sm text-white">necc@di.uminho.pt</span>
+            <div className="flex items-start gap-3">
+              <IoLocationOutline
+                size={20}
+                className="mt-0.5 shrink-0 text-white"
+                aria-hidden="true"
+              />
+
+              <span className="text-sm leading-relaxed text-white">
+                DI, sala 1.03
+                <br />
+                Universidade do Minho, Braga
+              </span>
             </div>
+
+            <a
+              href="mailto:necc@di.uminho.pt"
+              className="flex items-center gap-3 text-sm text-white transition-colors duration-200 hover:text-[#3B9EFF]"
+            >
+              <MdOutlineMail
+                size={20}
+                className="shrink-0"
+                aria-hidden="true"
+              />
+              necc@di.uminho.pt
+            </a>
           </div>
 
+          {/* Redes sociais */}
           <div className="flex flex-col gap-3">
-            <h3
-              className={`text-xs font-bold tracking-[0.2em] text-white  mb-1`}
-            >
+            <h3 className="mb-1 text-xs font-bold uppercase text-[#C4D8EE]">
               Social
             </h3>
 
-            <div className={`flex items-center gap-4`}>
-              <Link
+            <div className="flex items-center gap-4">
+              <a
                 href="https://www.instagram.com/necc_uminho/"
-                className="text-white hover:text-[#3B9EFF] transition-colors duration-200 group"
                 target="_blank"
+                className="text-white transition-colors duration-200 hover:text-[#3B9EFF]"
               >
                 <FiInstagram size={20} />
-              </Link>
+              </a>
 
-              <Link
-                href="https://discord.gg/3Z2v6J7"
-                className="text-white hover:text-[#3B9EFF] transition-colors duration-200 group"
+              <a
+                href=""
                 target="_blank"
+                rel="noopener "
+                className="text-white transition-colors duration-200 hover:text-[#3B9EFF]"
               >
                 <SiDiscord size={20} />
-              </Link>
+              </a>
 
-              <Link
+              <a
                 href="teste"
-                className="text-white hover:text-[#3B9EFF] transition-colors duration-200 group"
                 target="_blank"
+                className="text-white transition-colors duration-200 hover:text-[#3B9EFF]"
               >
                 <FiGithub size={20} />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

@@ -72,7 +72,7 @@ const Department = ({
 
 export default function TeamPage() {
   return (
-    <main className="bg-background">
+    <main className="bg-[#161E2E]">
       <div className="w-full py-16 px-6 sm:px-10 lg:px-16 mx-auto max-w-400">
         {/* Header */}
         <header className="mb-16 sm:mb-20">

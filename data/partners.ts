@@ -26,7 +26,7 @@ export const partnerData: Partner[] = [
     image: "/images/partners/partner6.png",
   },
   {
-    name: "Mikado - Braga & Famalicão",
+    name: "Mikado ",
     image: "/images/partners/partner7.png",
   },
   {
