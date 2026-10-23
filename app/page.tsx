@@ -86,22 +86,22 @@ export default function Home() {
       {/* Hero */}
       <section className="relative h-screen w-full overflow-hidden">
         <Image
-          src="/banner.png"
+          src="/banner.webp"
           alt="Banner NECC"
           fill
           priority
           className="object-cover object-center"
         />
 
-        <div className="absolute bottom-60 left-0 z-10 w-full px-6 sm:px-10 lg:px-16">
-          <div className="mx-auto flex w-full max-w-350 items-center gap-2 lg:gap-6">
-            <h1 className="font-orbitron text-5xl font-extrabold tracking-wide text-white lg:text-9xl">
+        <div className="absolute sm:bottom-60 bottom-1/2  left-0 z-10 w-full px-6 sm:px-10 lg:px-16">
+          <div className="mx-auto flex sm:flex-row flex-col w-full max-w-350 items-center gap-2 lg:gap-6">
+            <h1 className="font-orbitron md:text-8xl text-6xl font-extrabold tracking-wide text-white lg:text-9xl">
               NECC
             </h1>
 
-            <div className="h-16 w-1 bg-white opacity-35 md:h-20" />
+            <div className="h-16 w-0.5 bg-white opacity-35 md:h-20 sm:block hidden " />
 
-            <h2 className="font-orbitron text-sm leading-relaxed tracking-wide text-white opacity-75 md:text-md lg:text-2xl">
+            <h2 className="font-orbitron  leading-relaxed tracking-wide text-white opacity-75 text-md lg:text-2xl">
               Núcleo de Estudantes de
               <br />
               Ciências da Computação
