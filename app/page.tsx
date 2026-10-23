@@ -5,16 +5,9 @@ import { Info, Partner } from "@/types";
 import { FaArrowDown } from "react-icons/fa6";
 import Marquee from "react-fast-marquee";
 
-const separator =
-  "flex items-center text-center " +
-  "before:content-[''] before:flex-1 before:border-b before:mr-[1em] " +
-  "before:[border-image:linear-gradient(to_left,var(--color-muted),transparent)_1] " +
-  "after:content-[''] after:flex-1 after:border-b after:ml-[1em] " +
-  "after:[border-image:linear-gradient(to_right,var(--color-muted),transparent)_1]";
-
 export function PartnerCard({ partner }: { partner: Partner }) {
   return (
-    <div className="rounded-md h-full w-full flex flex-col items-center bg-background2 border border-solid overflow-hidden">
+    <div className="rounded-md h-full w-full flex flex-col items-center border-2 border-solid overflow-hidden bg-[#233047] border-[#38547A]">
       <img
         src={partner.image}
         alt={"Logo de " + partner.name}
@@ -26,29 +19,33 @@ export function PartnerCard({ partner }: { partner: Partner }) {
     </div>
   );
 }
-
 const aboutUsListItem = (info: Info, pos: number) => {
   return (
-    <li
-      key={pos}
-      className="grid grid-cols-[7rem_1fr] items-center 
-        before:[counter-increment:orderedList] before:content-[counter(orderedList)]
-        before:text-[#92B4D4] before:opacity-15 before:font-black before:text-[7rem]"
-    >
-      <div className="flex gap-4 lg:gap-12 items-center">
-        <div className="flex flex-col gap-2 items-center justify-center">
-          <div className="size-2 bg-border rounded-full"></div>
-          <div className="w-px h-20 bg-linear-to-bl from-border to-transparent"></div>
+    <li key={pos} className="group flex items-center gap-4 py-6 lg:gap-8">
+      <span className="w-16 shrink-0 text-6xl font-black text-[#92B4D4]/15 transition-colors duration-300 group-hover:text-[#3B9EFF] lg:w-24 lg:text-7xl">
+        {String(pos + 1).padStart(2, "0")}
+      </span>
+
+      {/* Separador */}
+      <div className="flex self-stretch shrink-0 flex-col items-center gap-4">
+        <div className="size-3 shrink-0 rounded-full bg-[#38547A] transition-colors duration-300 group-hover:bg-[#3B9EFF]" />
+
+        <div className="w-0.5 flex-1 bg-linear-to-b from-[#38547A] to-transparent" />
+      </div>
+
+      {/* Conteúdo */}
+      <div className="flex min-w-0 flex-1 flex-col gap-3 lg:gap-4">
+        <div className="flex items-center gap-4">
+          <info.icon className="size-6 shrink-0 text-[#C4D8EE] transition-colors duration-300 group-hover:text-white lg:size-7" />
+
+          <h2 className="text-base font-black uppercase text-[#C4D8EE] transition-colors duration-300 group-hover:text-white lg:text-xl">
+            {info.name}
+          </h2>
         </div>
-        <div className="grid gap-2">
-          <div className="flex items-center gap-2 text-foreground2">
-            <info.icon className="size-4 lg:size-8" />
-            <h2 className="text-md lg:text-xl weight-900 uppercase">
-              {info.name}
-            </h2>
-          </div>
-          <p className="text-xs lg:text-sm ">{info.description}</p>
-        </div>
+
+        <p className="text-sm leading-relaxed text-[#92B4D4] lg:text-base">
+          {info.description}
+        </p>
       </div>
     </li>
   );
@@ -58,17 +55,22 @@ const eventListItem = (info: Info, pos: number) => {
   return (
     <li
       key={pos}
-      className="flex odd:flex-row-reverse items-center py-2 lg:py-4 group"
+      className="group flex items-center py-2 even:flex-row-reverse lg:py-4"
     >
-      <div className="size-16 bg-background2 flex items-center rounded-full shrink border-solid border">
-        <info.icon className="m-auto lg:size-8" />
+      <div className="flex items-center rounded-full border-2 border-[#38547A] bg-[#233047] p-5 transition-colors duration-300 group-hover:border-white lg:p-6">
+        <info.icon className="text-[#C4D8EE] transition-colors duration-300 group-hover:text-white lg:size-8" />
       </div>
-      <div className="h-px group-odd:bg-linear-to-l group-even:bg-linear-to-r from-border to-transparent grow"></div>
-      <div className="shrink w-1/2 lg:w-full lg:max-w-120">
-        <h2 className="text-white text-base lg:text-xl font-bold lg:mb-4 weight-900 uppercase">
+
+      <div className="h-0.5 w-full bg-linear-to-l from-[#38547A] to-transparent group-odd:bg-linear-to-r" />
+
+      <div className="flex sm:w-1/2  w:3/4 flex-col gap-2">
+        <h2 className="text-base font-bold uppercase text-[#C4D8EE] transition-colors duration-300 group-hover:text-white lg:mb-4 lg:text-xl">
           {info.name}
         </h2>
-        <p className="text-xs lg:text-lg">{info.description}</p>
+
+        <p className="text-xs text-[#92B4D4] lg:text-lg">
+          {info.description}
+        </p>
       </div>
     </li>
   );
@@ -79,7 +81,7 @@ export default function Home() {
   const eventsElements = eventData.map(eventListItem);
 
   return (
-    <div className="bg-background">
+    <div className="bg-[#161E2E]">
       <div className="h-screen relative w-full overflow-hidden">
         <Image
           src="/banner.png"
@@ -96,7 +98,7 @@ export default function Home() {
             </h1>
 
             <div className="h-16 md:h-20 w-1 bg-white opacity-35"></div>
-            <h2 className="font-orbitron text-md lg:text-2xl text-white opacity-75 tracking-wide leading-relaxed">
+            <h2 className="font-orbitron md:text-md text-sm  lg:text-2xl text-white opacity-75 tracking-wide leading-relaxed">
               Núcleo de Estudantes de
               <br />
               Ciências da Computação
@@ -114,41 +116,48 @@ export default function Home() {
 
       <section
         className="w-full py-2 lg:py-16 px-2 sm:px-10 lg:px-16 mx-auto max-w-400
-        grid lg:grid-cols-[30rem_1fr] items-center lg:gap-4 text-[#92B4D4]"
+        grid lg:grid-cols-[30rem_1fr] items-center lg:gap-4"
       >
         <div>
-          <h1 className="text-3xl lg:text-5xl uppercase text-foreground2 font-bold text-center lg:text-left ">
+          <h1 className="text-3xl lg:text-5xl uppercase text-white font-bold text-center lg:text-left ">
             Sobre nós
           </h1>
-          <p className="text-sm lg:text-md text-center lg:text-left">
+          <p className="text-sm lg:text-md text-center lg:text-left text-[#92B4D4] mt-4 sm:mb-8 mb-20">
             Tudo que precisas de saber sobre o NECC.
           </p>
         </div>
         <ol
           role="list"
-          className="m-0 p-0 py-4 grid gap-1 list-inside list-none w-full [counter-reset:orderedList]"
+          className="m-0 p-0 py-4 grid gap-1 list-inside list-none w-full [counter-reset:orderedList] text-[#92B4D4]"
         >
           {aboutUsElements}
         </ol>
       </section>
 
       <section className="w-full py-2 lg:py-16 lg:px-16 mx-auto max-w-400 text-[#92B4D4]">
-        <h1
-          className={`${separator} text-white text-3xl lg:text-7xl font-bold`}
-        >
-          Eventos
-        </h1>
+        <div className="flex items-center gap-6 mb-20">
+          <div className="h-px flex-1 bg-linear-to-r from-transparent to-[#38547A]" />
+
+          <h1 className="text-center text-3xl font-bold text-white lg:text-6xl">
+            Eventos
+          </h1>
+
+          <div className="h-px flex-1 bg-linear-to-l from-transparent to-[#38547A]" />
+        </div>
+
         <ul className="m-0 p-0 px-4 py-4 grid gap-1 list-inside">
           {eventsElements}
         </ul>
       </section>
 
-      <section className="w-full py-2 lg:py-16 px-6 sm:px-10 lg:px-16 mx-auto max-w-400 text-[#92B4D4]">
-        <h1
-          className={`${separator} text-white text-3xl lg:text-7xl font-bold py-4`}
-        >
-          Parceiros
-        </h1>
+      <section className="w-full py-2 lg:py-16 px-6 sm:px-10 lg:px-16 mx-auto max-w-400 ">
+        <div className="flex items-center gap-6 mb-20">
+          <div className="h-px flex-1 bg-linear-to-r from-transparent to-[#38547A]" />
+          <h1 className="text-center text-3xl font-bold text-white lg:text-6xl">
+            Parceiros
+          </h1>
+          <div className="h-px flex-1 bg-linear-to-l from-transparent to-[#38547A]" />
+        </div>
 
         <Marquee
           speed={60}
@@ -180,7 +189,6 @@ export default function Home() {
               Hoodies, t-shirts, canecas e muito mais. Como sócio tens desconto
               em todos os produtos.
             </p>
-            {/* TODO(roberto):  fill redirect link */}
             <a className="p-2 bg-[#FFFFFF40] text-sm lg:text-base text-foreground2 self-start rounded-lg">
               Merchandising
             </a>
@@ -216,7 +224,6 @@ export default function Home() {
               Participa em todos os nossos eventos gratuitamente e usufrui de
               benefícios exclusivos.
             </p>
-            {/* TODO(roberto):  fill redirect link */}
             <a className="p-2 bg-[#FFFFFF40] text-sm lg:text-base text-foreground2 self-start rounded-lg">
               Saber mais
             </a>
@@ -239,7 +246,6 @@ export default function Home() {
             Faz parte de um ou mais departamentos e contribui para o
             funcionamento do teu núcleo.
           </p>
-          {/* TODO(roberto):  fill redirect link */}
           <a className="p-2 self-start bg-[#FFFFFF40] text-sm lg:text-base text-foreground2 rounded-lg shrink">
             Saber mais
           </a>

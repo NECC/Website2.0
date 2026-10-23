@@ -23,20 +23,18 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="h-20 w-full bg-[#0D0F1A]">
-        <div className="flex h-full items-center px-4 sm:px-16">
-          {/* Logo */}
+      <nav className="bg-[#0D0F1A]">
+        <div className="flex items-center py-4 px-6 sm:px-10 lg:px-16 mx-auto max-w-400 ">
           <Link href="/" className="shrink-0">
             <Image
               src="/logo.png"
               alt="Logo NECC"
               width={60}
               height={60}
-              className="h-15 w-15"
+              className="h-8 w-8"
             />
           </Link>
 
-          {/* Desktop menu */}
           <div className="hidden items-center sm:flex">
             {links.map((link) => (
               <Link
@@ -46,19 +44,15 @@ export default function Navbar() {
               >
                 {link.label}
 
-                {/* Alterado para origin-center */}
                 <span className="absolute bottom-0 left-0 h-0.75 w-full origin-center scale-x-0 bg-[#3B9EFF] transition-transform duration-200 group-hover:scale-x-100" />
               </Link>
             ))}
           </div>
 
-          {/* Mobile menu button */}
           <button
             type="button"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="ml-auto flex h-10 w-10 items-center justify-center sm:hidden"
-            aria-label="Abrir menu"
-            aria-expanded={isMenuOpen}
           >
             <div className="flex w-7 flex-col gap-1.5">
               <span
@@ -83,10 +77,9 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      <div
-        className={`fixed inset-0 top-20 z-20 bg-black/75 backdrop-blur-lg transition-transform duration-200 sm:hidden ${
-          isMenuOpen ? "translate-x-0" : "translate-x-full"
+      <nav
+        className={`fixed w-full h-full z-20 bg-black/75 backdrop-blur-lg transition-transform duration-200 sm:hidden ${
+          isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <div className="divide-y-2 divide-[#008CCA42] px-6">
@@ -99,12 +92,11 @@ export default function Navbar() {
             >
               {link.label}
 
-              {/* Alterado para origin-center */}
               <span className="absolute bottom-0 left-0 h-0.75 w-full origin-center scale-x-0 bg-[#3B9EFF] transition-transform duration-200 group-hover:scale-x-100" />
             </Link>
           ))}
         </div>
-      </div>
+      </nav>
     </>
   );
 }
