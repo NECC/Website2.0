@@ -5,29 +5,23 @@ import { Info, Partner } from "@/types";
 import Marquee from "react-fast-marquee";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
-import {
-  HoverLift,
-  MotionLi,
-  Reveal,
-  MotionProvider,
-} from "./components/motion";
+import { MotionLi, Reveal, MotionProvider } from "./components/motion";
 
 function PartnerCard({ partner }: { partner: Partner }) {
   return (
-    <HoverLift>
-      <div className="flex flex-col items-center rounded-xl border-2 border-solid border-[#38547A] bg-[#233047]">
-        <Image
-          width={256}
-          height={256}
-          src={partner.image}
-          alt={"Logo de " + partner.name}
-          className="rounded-t-xl object-cover object-center"
-        />
-        <p className="p-4 text-center font-semibold text-white">
-          {partner.name}
-        </p>
-      </div>
-    </HoverLift>
+    <div className="flex flex-col items-center rounded-xl border-2 border-solid border-[#38547A] bg-[#233047]">
+      <Image
+        width={256}
+        height={256}
+        src={partner.image}
+        alt={"Logo de " + partner.name}
+        className="rounded-t-xl object-cover object-center"
+      />
+
+      <p className="p-4 text-center font-semibold text-white">
+        {partner.name}
+      </p>
+    </div>
   );
 }
 
@@ -45,6 +39,7 @@ const aboutUsListItem = (info: Info, pos: number) => {
 
       <div className="flex shrink-0 flex-col items-center gap-4 self-stretch">
         <div className="size-3 shrink-0 rounded-full bg-[#38547A] transition-colors duration-300 group-hover:bg-[#3B9EFF]" />
+
         <div className="w-0.5 flex-1 bg-linear-to-b from-[#38547A] to-transparent" />
       </div>
 
@@ -71,20 +66,22 @@ const eventListItem = (info: Info, pos: number) => {
       key={pos}
       x={pos % 2 === 0 ? -60 : 60}
       y={0}
-      className="group flex items-center py-2 even:flex-row-reverse lg:py-4"
+      className="group flex items-center py-6 even:flex-row-reverse lg:py-4"
     >
       <div className="flex items-center rounded-full border-2 border-[#38547A] bg-[#233047] p-5 transition-colors duration-300 group-hover:border-white lg:p-6">
         <info.icon className="text-[#C4D8EE] transition-colors duration-300 group-hover:text-white lg:size-8" />
       </div>
 
-      <div className="h-0.5 w-full bg-linear-to-l from-[#38547A] to-transparent group-odd:bg-linear-to-r" />
+      <div className="h-0.5 w-1/2 bg-linear-to-l from-[#38547A] to-transparent group-odd:bg-linear-to-r sm:w-full" />
 
-      <div className="flex w-3/4 flex-col gap-2 sm:w-1/2">
+      <div className="flex w-full flex-col gap-2 sm:w-1/2">
         <h2 className="text-base font-bold uppercase text-[#C4D8EE] transition-colors duration-300 group-hover:text-white lg:mb-4 lg:text-xl">
           {info.name}
         </h2>
 
-        <p className="text-xs text-[#92B4D4] lg:text-lg">{info.description}</p>
+        <p className="text-sm leading-relaxed text-[#92B4D4] lg:text-base">
+          {info.description}
+        </p>
       </div>
     </MotionLi>
   );
@@ -96,7 +93,7 @@ export default function Home() {
 
   return (
     <MotionProvider>
-      <div className="bg-[#161E2E] overflow-x-clip">
+      <div className="overflow-x-clip bg-[#161E2E]">
         {/* Hero */}
         <section className="relative h-screen w-full overflow-hidden">
           <Image
@@ -137,6 +134,7 @@ export default function Home() {
               <span className="text-sm uppercase leading-relaxed text-white opacity-50">
                 Desliza para ver mais
               </span>
+
               <MdOutlineKeyboardArrowDown className="animate-bounce text-3xl text-white opacity-50" />
             </Reveal>
           </div>
@@ -149,14 +147,12 @@ export default function Home() {
               Sobre nós
             </h1>
 
-            <p className="mb-8 mt-4 text-center text-sm text-[#92B4D4] sm:mb-0 lg:text-left lg:text-base">
+            <p className="mt-4 text-center text-sm text-[#92B4D4] sm:text-base lg:text-left">
               Tudo que precisas de saber sobre o NECC.
             </p>
           </Reveal>
 
-          <ol className="m-0 grid w-full list-none gap-1 p-0 text-[#92B4D4]">
-            {aboutUsElements}
-          </ol>
+          <ol>{aboutUsElements}</ol>
         </section>
 
         {/* Eventos */}
@@ -171,12 +167,12 @@ export default function Home() {
             <div className="h-px flex-1 bg-linear-to-l from-transparent to-[#38547A]" />
           </Reveal>
 
-          <ul className="m-0 grid list-inside gap-1 py-4">{eventsElements}</ul>
+          <ul>{eventsElements}</ul>
         </section>
 
         {/* Parceiros */}
         <section className="mx-auto w-full max-w-400 px-6 py-12 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
-          <Reveal className="mb-12 flex items-center gap-6 sm:mb-16">
+          <Reveal className="flex items-center gap-6">
             <div className="h-px flex-1 bg-linear-to-r from-transparent to-[#38547A]" />
 
             <h1 className="text-center text-3xl font-bold text-white lg:text-6xl">
@@ -185,6 +181,11 @@ export default function Home() {
 
             <div className="h-px flex-1 bg-linear-to-l from-transparent to-[#38547A]" />
           </Reveal>
+
+          <p className="pt-6 pb-10 text-center text-sm leading-relaxed text-[#92B4D4] lg:text-base">
+            Com o teu cartão de membro NECC tens acesso a descontos e benefícios
+            exclusivos nos nossos parceiros locais em Braga.
+          </p>
 
           <Marquee speed={60} gradient={false} pauseOnHover>
             {partnerData.map((partner) => (
@@ -199,7 +200,7 @@ export default function Home() {
         <section className="mx-auto grid w-full max-w-400 grid-cols-1 gap-4 px-6 py-12 text-[#92B4D4] sm:px-10 sm:py-16 lg:grid-cols-2 lg:gap-6 lg:px-16 lg:py-20">
           {/* Merchandising — apenas desktop */}
           <Reveal className="hidden lg:col-span-2 lg:block">
-            <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#1A2640] to-[#111827] p-5 hover:border-[#3B9EFF]/50 hover:bg-linear-to-br hover:from-[#1A2640]/90 hover:to-[#111827]/90 sm:p-8 lg:flex-row lg:items-center lg:p-6">
+            <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#1A2640] to-[#111827] p-5 transition-colors hover:border-[#3B9EFF]/50 hover:from-[#1A2640]/90 hover:to-[#111827]/90 sm:p-8 lg:flex-row lg:items-center lg:p-6">
               <div className="relative z-10 flex max-w-2xl flex-col items-start gap-4">
                 <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-5xl">
                   Merchandising
@@ -226,7 +227,7 @@ export default function Home() {
                   alt="Estudante a vestir uma t-shirt do NECC"
                   width={196}
                   height={256}
-                  className="absolute left-4 top-8 z-20 w-36 rounded-lg border border-white/10 object-cover shadow-xl transition-transform duration-300 group-hover:-rotate-3"
+                  className="absolute top-8 left-4 z-20 w-36 rounded-lg border border-white/10 object-cover shadow-xl transition-transform duration-300 group-hover:-rotate-3"
                 />
 
                 <Image
@@ -234,7 +235,7 @@ export default function Home() {
                   alt="T-shirt do NECC"
                   width={196}
                   height={256}
-                  className="absolute left-36 top-0 z-10 w-36 rounded-lg border border-white/10 object-cover shadow-xl transition-transform duration-300 group-hover:rotate-3"
+                  className="absolute top-0 left-36 z-10 w-36 rounded-lg border border-white/10 object-cover shadow-xl transition-transform duration-300 group-hover:rotate-3"
                 />
               </div>
             </div>
