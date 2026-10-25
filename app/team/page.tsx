@@ -32,7 +32,7 @@ const MemberCard = ({
               width={128}
               height={128}
               alt={`Foto de ${name}`}
-              className="h-full w-full rounded-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+              className="h-full w-full rounded-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-active:grayscale-0"
             />
           ) : (
             <div className="flex h-full w-full items-center justify-center rounded-full bg-[#1e3047] text-2xl font-bold text-slate-400">
@@ -41,12 +41,10 @@ const MemberCard = ({
           )}
         </div>
 
-        {/* Cargo */}
         <h4 className="mb-1.5 text-center text-[11px] font-medium uppercase tracking-wider text-slate-300 sm:text-xs lg:text-sm text-nowrap">
           {role}
         </h4>
 
-        {/* Nome */}
         <h3 className="text-center text-sm font-bold leading-tight text-white sm:text-base lg:text-lg text-nowrap">
           {name}
         </h3>
@@ -60,7 +58,7 @@ const SectionWrapper = ({ title, children }: SectionWrapperProps) => {
     <div className="mb-12 flex flex-row gap-4 sm:mb-16 sm:gap-6 lg:gap-8">
       {/* Título lateral */}
       <div className="flex w-8 shrink-0 items-center justify-start sm:w-12 lg:w-16">
-        <h2 className="rotate-180 text-lg font-bold uppercase tracking-widest text-[#38547A] [writing-mode:vertical-rl] sm:text-2xl lg:text-3xl">
+        <h2 className="rotate-180 font-bold uppercase tracking-widest text-[#38547A] [writing-mode:vertical-rl] md:text-4xl text-3xl ">
           {title}
         </h2>
       </div>
@@ -106,9 +104,7 @@ export default function TeamPage() {
               <div className="h-0.5 flex-1 bg-linear-to-r from-[#38547A] to-transparent" />
 
               <Reveal y={30} delay={0.2}>
-                <h2 className="shrink-0 whitespace-nowrap text-2xl font-bold text-[#38547A] lg:text-3xl">
-                  2026/27
-                </h2>
+                <h2 className="font-bold text-[#38547A] md:text-4xl text-3xl">2026/27</h2>
               </Reveal>
             </div>
 
@@ -125,7 +121,7 @@ export default function TeamPage() {
 
             {/* Ano Mobile */}
             <Reveal y={20} delay={0.3}>
-              <p className="mt-4 block text-end text-4xl font-bold text-[#38547A] sm:hidden">
+              <p className="mt-4 block text-end md:text-4xl text-3xl font-bold text-[#38547A] sm:hidden">
                 2026/27
               </p>
             </Reveal>
