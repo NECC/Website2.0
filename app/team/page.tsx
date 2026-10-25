@@ -26,19 +26,13 @@ const MemberCard = ({
       >
         {/* Fotografia */}
         <div className="mb-3 h-24 w-24 shrink-0 overflow-hidden rounded-full border border-white p-1 sm:mb-4 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
-          {imgUrl ? (
-            <Image
-              src={imgUrl}
-              width={128}
-              height={128}
-              alt={`Foto de ${name}`}
-              className="h-full w-full rounded-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0 group-active:grayscale-0"
-            />
-          ) : (
-            <div className="flex h-full w-full items-center justify-center rounded-full bg-[#1e3047] text-2xl font-bold text-slate-400">
-              {name.charAt(0)}
-            </div>
-          )}
+          <Image
+            src={imgUrl}
+            width={128}
+            height={128}
+            alt={`Foto de ${name}`}
+            className="pointer-events-none h-full w-full rounded-full object-cover select-none grayscale transition-all duration-500 group-hover:grayscale-0 group-active:grayscale-0"
+          />
         </div>
 
         <h4 className="mb-1.5 text-center text-[11px] font-medium uppercase tracking-wider text-slate-300 sm:text-xs lg:text-sm text-nowrap">
@@ -104,7 +98,9 @@ export default function TeamPage() {
               <div className="h-0.5 flex-1 bg-linear-to-r from-[#38547A] to-transparent" />
 
               <Reveal y={30} delay={0.2}>
-                <h2 className="font-bold text-[#38547A] md:text-4xl text-3xl">2026/27</h2>
+                <h2 className="font-bold text-[#38547A] md:text-4xl text-3xl">
+                  2026/27
+                </h2>
               </Reveal>
             </div>
 
