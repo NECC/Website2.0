@@ -7,7 +7,7 @@ import Image from "next/image";
 const links = [
   { label: "EQUIPA", href: "/team" },
   { label: "PARCERIAS", href: "/partners" },
-  { label: "LOJA", href: "/" },
+  { label: "LOJA", href: "/merch" },
 ];
 
 export default function Navbar() {
