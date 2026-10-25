@@ -197,7 +197,7 @@ export default function Home() {
         </section>
 
         {/* Call to action */}
-        <section className="mx-auto grid w-full max-w-400 grid-cols-1 gap-4 px-6 py-12 text-[#92B4D4] sm:px-10 sm:py-16 lg:grid-cols-2 lg:gap-6 lg:px-16 lg:py-20">
+        <section className="mx-auto grid w-full max-w-400 grid-cols-1 gap-4 px-6  text-[#92B4D4] sm:px-10 py-16 lg:grid-cols-2 lg:gap-6 lg:px-16 lg:py-20">
           {/* Merchandising — apenas desktop */}
           <Reveal className="hidden lg:col-span-2 lg:block">
             <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#1A2640] to-[#111827] p-5 transition-colors hover:border-[#3B9EFF]/50 hover:from-[#1A2640]/90 hover:to-[#111827]/90 sm:p-8 lg:flex-row lg:items-center lg:p-6">

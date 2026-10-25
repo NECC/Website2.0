@@ -1,70 +1,73 @@
 import { teamData } from "@/data/team";
 import type { TeamMember } from "@/types";
+import Image from "next/image";
+import { Reveal, MotionProvider } from "../components/motion";
 
 type SectionWrapperProps = {
   title: string;
   children: React.ReactNode;
 };
 
-const MemberCard = ({ role, name, imgUrl }: TeamMember) => {
+const isLight = (index: number, cols: number) =>
+  (Math.floor(index / cols) + (index % cols)) % 2 === 0;
+
+const MemberCard = ({
+  role,
+  name,
+  imgUrl,
+  index,
+}: TeamMember & { index: number }) => {
+  const color = isLight(index, 2) ? "bg-[#38547A]" : "bg-[#233047]";
+
   return (
-    <div className="bg-[#2c405a] rounded-xl flex flex-col items-center justify-center p-4 lg:p-6 transition-transform hover:-translate-y-1 w-full sm:w-44 lg:w-52 aspect-[3/4]">
-      <div className="relative rounded-full p-1 border-[1.5px] border-dashed border-slate-300/60 mb-3 lg:mb-5 w-16 h-16 sm:w-24 sm:h-24 lg:w-28 lg:h-28 flex items-center justify-center shrink-0">
-        <div className="w-full h-full rounded-full overflow-hidden bg-[#1a2639]">
-          {imgUrl && (
-            <img
+    <Reveal y={30} className="w-full sm:w-48 xl:w-54">
+      <div
+        className={`group flex aspect-square w-full flex-col items-center justify-center rounded-2xl p-4 sm:p-5 lg:p-6 ${color}`}
+      >
+        {/* Fotografia */}
+        <div className="mb-3 h-24 w-24 shrink-0 overflow-hidden rounded-full border border-white p-1 sm:mb-4 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+          {imgUrl ? (
+            <Image
               src={imgUrl}
+              width={128}
+              height={128}
               alt={`Foto de ${name}`}
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer"
+              className="h-full w-full rounded-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
             />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center rounded-full bg-[#1e3047] text-2xl font-bold text-slate-400">
+              {name.charAt(0)}
+            </div>
           )}
         </div>
+
+        {/* Cargo */}
+        <h4 className="mb-1.5 text-center text-[11px] font-medium uppercase tracking-wider text-slate-300 sm:text-xs lg:text-sm text-nowrap">
+          {role}
+        </h4>
+
+        {/* Nome */}
+        <h3 className="text-center text-sm font-bold leading-tight text-white sm:text-base lg:text-lg text-nowrap">
+          {name}
+        </h3>
       </div>
-
-      <h4 className="text-[10px] sm:text-[11px] md:text-xs lg:text-sm text-slate-300 font-medium tracking-wide text-center mb-1.5 lg:mb-2 leading-tight">
-        {role}
-      </h4>
-
-      <h3 className="text-xs sm:text-sm md:text-base lg:text-lg text-white font-bold text-center leading-tight">
-        {name || "Por definir"}
-      </h3>
-    </div>
+    </Reveal>
   );
 };
 
 const SectionWrapper = ({ title, children }: SectionWrapperProps) => {
   return (
-    <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8 mb-12 sm:mb-16">
-      <div className="flex shrink-0 items-end w-8 sm:w-12 lg:w-16 justify-center">
-        <h2 className="text-lg sm:text-2xl lg:text-3xl font-bold uppercase tracking-widest text-[#4a658a] [writing-mode:vertical-rl] rotate-180">
+    <div className="mb-12 flex flex-row gap-4 sm:mb-16 sm:gap-6 lg:gap-8">
+      {/* Título lateral */}
+      <div className="flex w-8 shrink-0 items-center justify-start sm:w-12 lg:w-16">
+        <h2 className="rotate-180 text-lg font-bold uppercase tracking-widest text-[#38547A] [writing-mode:vertical-rl] sm:text-2xl lg:text-3xl">
           {title}
         </h2>
       </div>
 
-      <div className="grow w-full overflow-hidden">{children}</div>
-    </div>
-  );
-};
-
-const Department = ({
-  title,
-  members,
-}: {
-  title: string;
-  members: TeamMember[];
-}) => {
-  return (
-    <div className="flex flex-row gap-4 sm:gap-6 lg:gap-8">
-      <div className="flex shrink-0 items-center w-8 sm:w-12 lg:w-16 justify-center">
-        <h3 className="text-lg sm:text-xl lg:text-2xl font-bold uppercase tracking-widest text-[#4a658a] [writing-mode:vertical-rl] rotate-180">
-          {title}
-        </h3>
-      </div>
-
-      <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-4 lg:gap-6 justify-start grow w-full">
-        {members.map((member) => (
-          <MemberCard key={`${member.role}-${member.name}`} {...member} />
-        ))}
+      {/* Conteúdo */}
+      <div className="w-full grow overflow-hidden sm:flex sm:items-center">
+        {children}
       </div>
     </div>
   );
@@ -72,122 +75,187 @@ const Department = ({
 
 export default function TeamPage() {
   return (
-    <main className="bg-[#161E2E]">
-      <div className="w-full py-16 px-6 sm:px-10 lg:px-16 mx-auto max-w-400">
-        {/* Header */}
-        <header className="mb-16 sm:mb-20">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 sm:gap-6">
-            <div className="flex items-center gap-4 sm:gap-6 w-full">
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-white uppercase">
-                EQUIPA
-              </h1>
-              <div className="hidden sm:block h-px bg-slate-600 flex-1 mx-2"></div>
-              <h2 className="hidden sm:block text-2xl sm:text-3xl font-bold text-[#4a658a] whitespace-nowrap">
+    <MotionProvider>
+      <main className="bg-[#161E2E]">
+        <div className="mx-auto w-full max-w-400 px-6 py-16 sm:px-10 lg:px-16">
+          {/* Cabeçalho */}
+          <header className="mb-9 sm:mb-20">
+            {/* Título Mobile */}
+            <div className="sm:hidden">
+              <Reveal y={30}>
+                <div className="flex items-center gap-3">
+                  <div className="h-px flex-1 bg-linear-to-r from-transparent to-[#38547A]" />
+
+                  <h1 className="text-center text-3xl font-extrabold uppercase tracking-tight text-white">
+                    EQUIPA
+                  </h1>
+
+                  <div className="h-px flex-1 bg-linear-to-l from-transparent to-[#38547A]" />
+                </div>
+              </Reveal>
+            </div>
+
+            {/* Título Desktop */}
+            <div className="hidden items-center gap-6 sm:flex">
+              <Reveal y={30}>
+                <h1 className="shrink-0 text-4xl font-extrabold uppercase tracking-tight text-white lg:text-5xl">
+                  EQUIPA
+                </h1>
+              </Reveal>
+
+              <div className="h-0.5 flex-1 bg-linear-to-r from-[#38547A] to-transparent" />
+
+              <Reveal y={30} delay={0.2}>
+                <h2 className="shrink-0 whitespace-nowrap text-2xl font-bold text-[#38547A] lg:text-3xl">
+                  2026/27
+                </h2>
+              </Reveal>
+            </div>
+
+            {/* Descrição */}
+            <Reveal y={20} delay={0.2}>
+              <div className="mt-4 max-w-2xl text-center text-xs leading-relaxed text-[#92B4D4] sm:text-start sm:text-sm lg:text-base">
+                <p>Aqui podes conhecer a equipa do NECC.</p>
+                <p>
+                  Que trabalha arduamente para que tenhas o melhor percurso
+                  académico e tires o maior proveito do teu curso.
+                </p>
+              </div>
+            </Reveal>
+
+            {/* Ano Mobile */}
+            <Reveal y={20} delay={0.3}>
+              <p className="mt-4 block text-end text-4xl font-bold text-[#38547A] sm:hidden">
                 2026/27
-              </h2>
-            </div>
-
-            <div className="sm:hidden h-px bg-slate-600 w-16 my-2"></div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mt-4 sm:mt-2">
-            <div className="text-xs sm:text-sm lg:text-base text-slate-400 max-w-2xl leading-relaxed">
-              <p>Aqui podes conhecer a equipa do NECC.</p>
-              <p>
-                Que trabalha arduamente para que tenhas o melhor percurso
-                académico e tire o maior proveito do teu curso.
               </p>
-            </div>
-            <h2 className="sm:hidden text-xl font-bold text-[#4a658a] self-end mt-4">
-              2026/27
-            </h2>
-          </div>
-        </header>
+            </Reveal>
+          </header>
 
-        {/* Direção */}
-        <SectionWrapper title="Direção">
-          <div className="grid grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 justify-start sm:w-fit">
-            {teamData.direcao.map((member) => (
-              <MemberCard key={`${member.role}-${member.name}`} {...member} />
-            ))}
-          </div>
-        </SectionWrapper>
-        {/* Assembleia Geral / Conselho Fiscal */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-12 xl:gap-8 lg:gap-16 mb-20 md:mb-24">
-          <SectionWrapper title="Assembleia Geral">
-            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-4 lg:gap-6 justify-start">
-              {teamData.assembleia.map((member) => (
-                <MemberCard key={`${member.role}-${member.name}`} {...member} />
+          {/* Direção */}
+          <SectionWrapper title="Direção">
+            <div className="grid grid-cols-2 justify-start gap-3 sm:w-fit sm:gap-4 md:grid-cols-3 lg:gap-6">
+              {teamData.direcao.map((member, index) => (
+                <MemberCard
+                  key={`${member.role}-${member.name}`}
+                  {...member}
+                  index={index}
+                />
               ))}
             </div>
           </SectionWrapper>
 
-          <SectionWrapper title="Conselho Fiscal">
-            <div className="grid grid-cols-2 sm:flex sm:flex-wrap gap-3 sm:gap-4 lg:gap-6 justify-start">
-              {teamData.conselho.map((member) => (
-                <MemberCard key={`${member.role}-${member.name}`} {...member} />
-              ))}
-            </div>
-          </SectionWrapper>
-        </div>
+          {/* Assembleia Geral / Conselho Fiscal */}
+          <div className="mb-20 grid grid-cols-1 gap-y-12 md:mb-24 lg:gap-16 xl:grid-cols-2 xl:gap-8">
+            {/* Assembleia Geral */}
+            <SectionWrapper title="Assembleia Geral">
+              <div className="grid grid-cols-2 items-center justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+                {teamData.assembleia.map((member, index) => (
+                  <MemberCard
+                    key={`${member.role}-${member.name}`}
+                    {...member}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </SectionWrapper>
 
-        {/* Departamentos */}
-        <div className="mt-12 sm:mt-20">
-          {/* Título Mobile */}
-          <div className="md:hidden flex justify-center mb-12">
-            <h1 className="text-2xl font-bold text-white uppercase tracking-widest">
-              Departamentos
-            </h1>
+            {/* Conselho Fiscal */}
+            <SectionWrapper title="Conselho Fiscal">
+              <div className="grid grid-cols-2 justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+                {teamData.conselho.map((member, index) => (
+                  <MemberCard
+                    key={`${member.role}-${member.name}`}
+                    {...member}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </SectionWrapper>
           </div>
 
-          {/* Grid de Departamentos */}
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-y-12 md:gap-y-16 md:gap-x-8 lg:gap-x-16 items-start">
-            <div className="hidden md:flex justify-start">
-              <h1 className="text-5xl lg:text-9xl font-black text-white leading-none tracking-tighter">
-                DE
-                <br />
-                PARTA
-                <br />
-                MEN
-                <br />
-                TOS
-              </h1>
-            </div>
+          {/* Departamentos */}
+          <div className="mt-12 sm:mt-20">
+            {/* Título Mobile */}
+            <Reveal y={30}>
+              <div className="mb-12 flex justify-center xl:hidden">
+                <h1 className="text-center text-3xl font-extrabold uppercase tracking-tight text-white sm:text-4xl">
+                  Departamentos
+                </h1>
+              </div>
+            </Reveal>
 
-            {/* Desenvolvimento */}
-            <div>
-              <Department
-                title="Desenvolvimento"
-                members={teamData.departamentos.desenvolvimento}
-              />
-            </div>
+            {/* Grid de Departamentos */}
+            <div className="grid grid-cols-1 items-start gap-y-12 md:gap-x-8 md:gap-y-16 lg:gap-x-16 xl:grid-cols-2">
+              {/* Título Desktop */}
+              <Reveal y={30} className="hidden justify-start xl:flex">
+                <h1 className="text-5xl font-black leading-none tracking-tighter text-white lg:text-8xl xl:text-9xl">
+                  DE
+                  <br />
+                  PARTA
+                  <br />
+                  MEN
+                  <br />
+                  TOS
+                </h1>
+              </Reveal>
 
-            {/* Pedagógico */}
-            <div>
-              <Department
-                title="Pedagógico"
-                members={teamData.departamentos.pedagogico}
-              />
-            </div>
+              {/* Desenvolvimento */}
+              <SectionWrapper title="Desenvolvimento">
+                <div className="grid grid-cols-2 justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+                  {teamData.departamentos.desenvolvimento.map(
+                    (member, index) => (
+                      <MemberCard
+                        key={`${member.role}-${member.name}`}
+                        {...member}
+                        index={index}
+                      />
+                    ),
+                  )}
+                </div>
+              </SectionWrapper>
 
-            {/* Recreativo */}
-            <div>
-              <Department
-                title="Recreativo"
-                members={teamData.departamentos.recreativo}
-              />
-            </div>
+              {/* Pedagógico */}
+              <SectionWrapper title="Pedagógico">
+                <div className="grid grid-cols-2 justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+                  {teamData.departamentos.pedagogico.map((member, index) => (
+                    <MemberCard
+                      key={`${member.role}-${member.name}`}
+                      {...member}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </SectionWrapper>
 
-            {/* Comunicação */}
-            <div>
-              <Department
-                title="Comunicação"
-                members={teamData.departamentos.comunicacao}
-              />
+              {/* Recreativo */}
+              <SectionWrapper title="Recreativo">
+                <div className="grid grid-cols-2 justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+                  {teamData.departamentos.recreativo.map((member, index) => (
+                    <MemberCard
+                      key={`${member.role}-${member.name}`}
+                      {...member}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </SectionWrapper>
+
+              {/* Comunicação */}
+              <SectionWrapper title="Comunicação">
+                <div className="grid grid-cols-2 justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+                  {teamData.departamentos.comunicacao.map((member, index) => (
+                    <MemberCard
+                      key={`${member.role}-${member.name}`}
+                      {...member}
+                      index={index}
+                    />
+                  ))}
+                </div>
+              </SectionWrapper>
             </div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </MotionProvider>
   );
 }
