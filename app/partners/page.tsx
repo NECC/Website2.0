@@ -2,6 +2,7 @@ import { partnersData } from "@/data/partners";
 import type { Partner } from "@/types";
 import Image from "next/image";
 import { Reveal, MotionProvider } from "../components/motion";
+import { FaArrowRight } from "react-icons/fa6";
 
 const isLight = (index: number) => {
   const row = Math.floor(index / 3);
@@ -107,15 +108,35 @@ export default function PartnersPage() {
             </Reveal>
           </header>
 
-          <div className="grid grid-cols-1 justify-between gap-x-6 gap-y-24 pt-20 sm:grid-cols-[repeat(2,16rem)] lg:grid-cols-[repeat(3,18rem)] lg:gap-y-28">
+          <div className="grid grid-cols-1 justify-between gap-x-6 gap-y-24 pt-20 sm:grid-cols-[repeat(2,16rem)] lg:grid-cols-[repeat(3,18rem)] lg:gap-y-28 bg-">
             {partnersData.map((partner, index) => (
-              <PartnerCard
-                key={partner.name}
-                partner={partner}
-                index={index}
-              />
+              <PartnerCard key={partner.name} partner={partner} index={index} />
             ))}
           </div>
+          {/* Sócios */}
+
+          <Reveal delay={0.1} className="lg:h-full py-16 lg:py-20">
+            <div className="flex flex-col gap-4 rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8 lg:h-full ">
+              <div className="flex flex-1 flex-col gap-2 sm:gap-3">
+                <h2 className="text-xl font-bold text-white sm:text-2xl">
+                  Torna-te sócio
+                </h2>
+
+                <p className="max-w-md text-sm leading-relaxed text-[#D0E1F3] sm:text-base">
+                  Participa nos nossos eventos e usufrui de benefícios
+                  exclusivos para a comunidade de Ciências da Computação.
+                </p>
+              </div>
+
+              <a
+                href=""
+                className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4] sm:w-fit sm:px-5"
+              >
+                Tornar-me sócio
+                <FaArrowRight />
+              </a>
+            </div>
+          </Reveal>
         </div>
       </main>
     </MotionProvider>
