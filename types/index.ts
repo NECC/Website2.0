@@ -1,9 +1,12 @@
 import { IconType } from "react-icons";
 
-export type Partner = {
+export interface Partner {
+  id?: number | string;
   name: string;
-  image: string;
-};
+  imgUrl: string;
+  offers?: string[];
+  discounts?: string[];
+}
 
 export type Info = {
   name: string;

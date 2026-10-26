@@ -1,40 +1,86 @@
-import type { Partner } from "@/types/index";
+import type { Partner } from "@/types";
 
-export const partnerData: Partner[] = [
+export const partnersData: Partner[] = [
   {
-    name: "CopyScan",
-    image: "/images/partners/partner1.png",
+    id: 1,
+    name: "Copy Scan",
+    imgUrl: "/images/partners/partner1.png",
+    discounts: [
+      "Encadernação: -2,50€ a 5€",
+      "Material escolar: -10% de desconto",
+      "Impressões: Preto e Branco: 0,04€ | Cores: 0,15€",
+    ],
   },
   {
+    id: 2,
     name: "Okulto Bar",
-    image: "/images/partners/partner2.png",
+    imgUrl: "/images/partners/partner2.png",
+    offers: [
+      "Menu do dia completo por 5,50€",
+      "Menu grupo por 10€",
+      "Shot da casa (0,50€)",
+    ],
+    discounts: [
+      "-0,20€ na compra de um fino",
+      "-0,45€ na compra de uma caneca",
+      "-0,50€ na compra de um Somersby/Absinto",
+    ],
   },
   {
-    name: "O-Olha Óticas",
-    image: "/images/partners/partner3.png",
+    id: 3,
+    name: "Oolha",
+    imgUrl: "/images/partners/partner3.png",
+    discounts: [
+      "-20% em armações de todas as marcas",
+      "-20% em lentes oftálmicas (progressivas e unifocais)",
+      "Lentes de contacto",
+      "Óculos de sol de todas as marcas",
+      "Acessórios (fios de óculos, etc)",
+      "Soluções de manutenção de lentes de contacto ou hidratantes oculares",
+    ],
   },
   {
+    id: 4,
     name: "Os Farias",
-    image: "/images/partners/partner4.png",
+    imgUrl: "/images/partners/partner4.png",
+    offers: [
+      "-3 emblemas, na compra de um traje",
+      "-5º emblema na compra de 4 pins ou emblemas",
+    ],
+    discounts: ["-0,25€ em meias"],
   },
   {
+    id: 5,
     name: "Braga Escape Game",
-    image: "/images/partners/partner5.png",
+    imgUrl: "/images/partners/partner5.png",
+    discounts: ["10% em qualquer atividade de grupo"],
   },
   {
+    id: 6,
     name: "Sabor da Fruta",
-    image: "/images/partners/partner6.png",
+    imgUrl: "/images/partners/partner6.png",
+    offers: ["Café ou fruta no menu estudante"],
   },
   {
-    name: "Mikado ",
-    image: "/images/partners/partner7.png",
+    id: 7,
+    name: "Mikado",
+    imgUrl: "/images/partners/partner7.png",
+    discounts: ["-10% em qualquer prato"],
   },
   {
-    name: "Escola de Condução UM",
-    image: "/images/partners/partner8.png",
+    id: 8,
+    name: "UMUM",
+    imgUrl: "/images/partners/partner8.png",
+    discounts: ["-60€ na obtenção da carta de condução cat.B"],
   },
   {
-    name: "Chip7",
-    image: "/images/partners/partner9.png",
+    id: 9,
+    name: "CHIP7",
+    imgUrl: "/images/partners/partner9.png",
+    discounts: [
+      "-25% em todos os serviços técnicos prestados com exceção dos serviços extremas em Outsourcing",
+    ],
   },
 ];
+
+export const partnerData = partnersData;
