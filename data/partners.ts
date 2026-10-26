@@ -15,15 +15,13 @@ export const partnersData: Partner[] = [
     id: 2,
     name: "Okulto Bar",
     imgUrl: "/images/partners/partner2.png",
-    offers: [
-      "Menu do dia completo por 5,50€",
-      "Menu grupo por 10€",
-      "Shot da casa (0,50€)",
-    ],
     discounts: [
       "-0,20€ na compra de um fino",
       "-0,45€ na compra de uma caneca",
       "-0,50€ na compra de um Somersby/Absinto",
+      "Menu do dia completo por 5,50€",
+      "Menu grupo por 10€",
+      "Shot da casa (0,50€)",
     ],
   },
   {
@@ -43,11 +41,11 @@ export const partnersData: Partner[] = [
     id: 4,
     name: "Os Farias",
     imgUrl: "/images/partners/partner4.png",
-    offers: [
+    discounts: [
+      "-0,25€ em meias",
       "-3 emblemas, na compra de um traje",
       "-5º emblema na compra de 4 pins ou emblemas",
     ],
-    discounts: ["-0,25€ em meias"],
   },
   {
     id: 5,
@@ -59,7 +57,7 @@ export const partnersData: Partner[] = [
     id: 6,
     name: "Sabor da Fruta",
     imgUrl: "/images/partners/partner6.png",
-    offers: ["Café ou fruta no menu estudante"],
+    discounts: ["Café ou fruta no menu estudante"],
   },
   {
     id: 7,
@@ -83,4 +81,4 @@ export const partnersData: Partner[] = [
   },
 ];
 
-export const partnerData = partnersData;  
+export const partnerData = partnersData;

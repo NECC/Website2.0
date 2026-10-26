@@ -4,8 +4,7 @@ export interface Partner {
   id?: number | string;
   name: string;
   imgUrl: string;
-  offers?: string[];
-  discounts?: string[];
+  discounts: string[];
 }
 
 export type Info = {
