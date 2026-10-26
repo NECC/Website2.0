@@ -25,7 +25,7 @@ const MemberCard = ({
         className={`group flex aspect-square w-full flex-col items-center justify-center rounded-2xl p-4 sm:p-5 lg:p-6 ${color}`}
       >
         {/* Fotografia */}
-        <div className="mb-3 h-24 w-24 shrink-0 overflow-hidden rounded-full border border-white p-1 sm:mb-4 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
+        <div className="mb-3 h-24 w-24 shrink-0 overflow-hidden rounded-full border border-white sm:mb-4 sm:h-28 sm:w-28 lg:h-32 lg:w-32">
           <Image
             src={imgUrl}
             width={128}
