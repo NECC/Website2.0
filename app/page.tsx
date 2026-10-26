@@ -13,7 +13,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
       <Image
         width={256}
         height={256}
-        src={partner.image}
+        src={partner.imgUrl}
         alt={"Logo de " + partner.name}
         className="rounded-t-xl object-cover object-center"
       />
