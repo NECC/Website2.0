@@ -83,4 +83,4 @@ export const partnersData: Partner[] = [
   },
 ];
 
-export const partnerData = partnersData;
+export const partnerData = partnersData;  

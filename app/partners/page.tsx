@@ -26,7 +26,7 @@ const PartnerCard = ({
         {/* Badge do logótipo (partners1.png até partners9.png) */}
         <div className="absolute -top-10 flex h-24 w-24 items-center justify-center overflow-hidden rounded-2xl bg-white p-2 shadow-lg sm:h-28 sm:w-28">
           <Image
-            src={partner.imgUrl || `/partners${index + 1}.png`}
+            src={partner.imgUrl || "/images/partners/partner1.png"}
             alt={`Logo de ${partner.name}`}
             width={112}
             height={112}
