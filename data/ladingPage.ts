@@ -61,6 +61,6 @@ export const eventData: Info[] = [
     name: "40 ANOS LCC",
     icon: FaDisplay,
     description:
-      "Semana da Ciência e Inovação — uma semana de palestras, painéis e demonstrações com investigadores e profissionais da área da computação e tecnologia.",
+      "40 Anos da Licenciatura em Ciências da Computação — três dias com uma comunidade inteira e empresas que fazem parte desta história.",
   },
 ];
