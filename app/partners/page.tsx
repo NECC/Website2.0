@@ -110,7 +110,7 @@ export default function PartnersPage() {
           <div className="grid grid-cols-1 justify-between gap-x-6 gap-y-24 pt-20 sm:grid-cols-[repeat(2,16rem)] lg:grid-cols-[repeat(3,18rem)] lg:gap-y-28">
             {partnersData.map((partner, index) => (
               <PartnerCard
-                key={partner.id}
+                key={partner.name}
                 partner={partner}
                 index={index}
               />

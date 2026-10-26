@@ -1,7 +1,6 @@
 import { IconType } from "react-icons";
 
 export interface Partner {
-  id?: number | string;
   name: string;
   imgUrl: string;
   discounts: string[];
