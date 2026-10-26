@@ -8,12 +8,21 @@ export default function MerchPage() {
       <div className="overflow-x-clip bg-[#161E2E]">
         {/* Hero */}
         <section className="relative h-screen w-full overflow-hidden">
+          {/* Banner Desktop */}
           <Image
             src="/bannerMerch.webp"
             alt="Banner Merch"
             fill
             priority
-            className="object-cover object-center"
+            className="hidden object-cover object-center md:block"
+          />
+
+          <Image
+            src="/bannerMerchMobile.webp"
+            alt="Banner Merch"
+            fill
+            priority
+            className="block object-cover object-center md:hidden"
           />
 
           <div className="absolute bottom-20 left-1/2 z-10 -translate-x-1/2">
