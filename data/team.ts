@@ -36,7 +36,7 @@ export const teamData: TeamData = {
       { role: "Co-diretor", name: "Pedro Gomes", imgUrl: "/images/team/member19.png" },
       { role: "Integrante", name: "Bruno Freitas", imgUrl: "/images/team/member20.png" },
       { role: "Integrante", name: "Leonor Sousa", imgUrl: "/images/team/member21.png" },
-      { role: "Integrante", name: "Eduardo Sousa", imgUrl: "/images/team/member22.png" },
+      { role: "Integrante", name: "Gonçalo Sousa", imgUrl: "/images/team/member22.png" },
     ],
     
     recreativo: [
@@ -49,7 +49,7 @@ export const teamData: TeamData = {
     comunicacao: [
       { role: "Diretora", name: "Rafaela Antunes", imgUrl: "/images/team/member27.png" },
       { role: "Co-diretor", name: "Artur Deboni", imgUrl: "/images/team/member28.png" },
-      { role: "Integrante", name: "Gabriela Barros", imgUrl: "/images/team/member29.png" },
+      { role: "Integrante", name: "Gabriela Miranda", imgUrl: "/images/team/member29.png" },
       { role: "Integrante", name: "Inês Rebelo", imgUrl: "/images/team/member30.png" },
       { role: "Integrante", name: "David Lobo", imgUrl: "/images/team/member31.png" },
     ],

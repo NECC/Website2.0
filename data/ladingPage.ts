@@ -6,7 +6,7 @@ import {
   FaWrench,
   FaCircleQuestion,
   FaDisplay,
-  FaAtom,
+  FaLinux,
 } from "react-icons/fa6";
 
 import { Info } from "@/types";
@@ -22,7 +22,7 @@ export const aboutUsData: Info[] = [
     name: "Fundação",
     icon: FaCalendar,
     description:
-      "Fundado em 2001, o NECC é um dos núcleos de estudantes mais antigos da Universidade do Minho, com mais de duas décadas ao serviço da comunidade académica.",
+      "Fundado em 2009, o NECC é um dos núcleos de estudantes mais antigos da Universidade do Minho, com mais de duas décadas ao serviço da comunidade académica.",
   },
   {
     name: "Localização",
@@ -53,14 +53,14 @@ export const eventData: Info[] = [
   },
   {
     name: "LIP",
-    icon: FaDisplay,
+    icon: FaLinux,
     description:
       "Linux Installation Party — um evento dedicado a ajudar estudantes a instalar e configurar Linux, promovendo o software livre e o controlo do próprio ambiente de trabalho.",
   },
   {
-    name: "SCI",
-    icon: FaAtom,
+    name: "40 ANOS LCC",
+    icon: FaDisplay,
     description:
-      "Semana da Ciência e Inovação — uma semana de palestras, painéis e demonstrações com investigadores e profissionais da área da computação e tecnologia.",
+      "40 Anos da Licenciatura em Ciências da Computação — três dias com uma comunidade inteira e empresas que fazem parte desta história.",
   },
 ];
