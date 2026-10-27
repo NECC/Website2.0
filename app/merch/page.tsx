@@ -1,6 +1,13 @@
 import Image from "next/image";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { Reveal, MotionProvider } from "../components/motion";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Merchandising",
+  description:
+    "Descobre o merchandising oficial do NECC, o Núcleo de Estudantes de Ciências da Computação da Universidade do Minho.",
+};
 
 export default function MerchPage() {
   return (
