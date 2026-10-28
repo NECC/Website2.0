@@ -66,4 +66,3 @@ export const partnersData: Partner[] = [
   },
 ];
 
-export const partnerData = partnersData;

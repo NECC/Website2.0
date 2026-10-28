@@ -29,3 +29,11 @@ export type TeamData = {
     recreativo: TeamMember[];
   };
 };
+
+export type Product = {
+  name: string;
+  unit?: boolean;
+  members: string;
+  nonMembers: string;
+  images: string[];
+};

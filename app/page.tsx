@@ -1,11 +1,12 @@
 import Image from "next/image";
 import { aboutUsData, eventData } from "@/data/ladingPage";
-import { partnerData } from "@/data/partners";
+import { partnersData } from "@/data/partners";
 import { Info, Partner } from "@/types";
 import Marquee from "react-fast-marquee";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
 import { MotionLi, Reveal, MotionProvider } from "./components/motion";
+import Link from "next/link";
 
 function PartnerCard({ partner }: { partner: Partner }) {
   return (
@@ -17,10 +18,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
         alt={"Logo de " + partner.name}
         className="rounded-t-xl object-cover object-center"
       />
-
-      <p className="p-4 text-center font-semibold text-white">
-        {partner.name}
-      </p>
+      <p className="p-4 text-center font-semibold text-white">{partner.name}</p>
     </div>
   );
 }
@@ -188,7 +186,7 @@ export default function Home() {
           </p>
 
           <Marquee speed={60} gradient={false} pauseOnHover>
-            {partnerData.map((partner) => (
+            {partnersData.map((partner) => (
               <div key={partner.name} className="mx-4 w-64">
                 <PartnerCard partner={partner} />
               </div>
@@ -212,18 +210,18 @@ export default function Home() {
                   NECC.
                 </p>
 
-                <a
-                  href=""
+                <Link
+                  href="/merch"
                   className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4] sm:w-fit sm:px-5"
                 >
                   Explorar merchandising
                   <FaArrowRight />
-                </a>
+                </Link>
               </div>
 
               <div className="relative hidden h-64 w-80 shrink-0 lg:block">
                 <Image
-                  src="/images/merchandising/merchandising2.png"
+                  src="/images/merch/merch12.png"
                   alt="Estudante a vestir uma t-shirt do NECC"
                   width={196}
                   height={256}
@@ -231,11 +229,11 @@ export default function Home() {
                 />
 
                 <Image
-                  src="/images/merchandising/merchandising1.png"
+                  src="/images/merch/merch5.png"
                   alt="T-shirt do NECC"
                   width={196}
                   height={256}
-                  className="absolute top-0 left-36 z-10 w-36 rounded-lg border border-white/10 object-cover shadow-xl transition-transform duration-300 group-hover:rotate-3"
+                  className="absolute top-0 left-36 z-10 w-36  object-cover shadow-xl transition-transform duration-300 group-hover:rotate-3"
                 />
               </div>
             </div>
