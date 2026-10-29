@@ -74,38 +74,37 @@ export default function MerchPage() {
           id="colecao"
           className="mx-auto w-full max-w-400 scroll-mt-20 px-4 py-12 sm:px-10 sm:py-16 lg:px-16"
         >
-          {/* Produtos: 1 coluna até lg, 2 colunas a partir de lg */}
           <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
             {products.map((p, i) => {
-              const n = p.images.length;
               const nameParts = p.name.split(" ");
 
               return (
                 <Reveal key={p.name} y={40} delay={(i % 2) * 0.15}>
                   <article className="relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl border border-[#92B4D4]/10 bg-linear-to-b from-[#38547A] to-[#2B4263] p-5 shadow-[0_0_40px_rgba(56,84,122,0.25)] sm:p-8 md:flex-row md:items-center md:justify-between md:gap-4">
-                    {/* Texto */}
                     <div className="flex shrink-0 flex-col gap-3 md:gap-4">
                       <h3 className="text-lg font-semibold uppercase leading-tight text-white sm:text-2xl">
                         {nameParts.slice(0, -1).join(" ")}
                         <br className="hidden md:block" />{" "}
-                        <span className="md:block">{nameParts.slice(-1)}</span>
-                        {p.unit && (
-                          <span className="ml-1 text-[10px] font-normal text-[#92B4D4]">
-                            (UNI.)
-                          </span>
-                        )}
+                        <span className="md:block">
+                          {nameParts.slice(-1)}
+                          {p.unit && (
+                            <span className="ml-1 text-[10px] font-normal text-[#92B4D4]">
+                              (UNI.)
+                            </span>
+                          )}
+                        </span>
                       </h3>
 
                       <div className="flex gap-8 text-sm md:flex-col md:gap-3">
                         <div>
-                          <p className="text-[#92B4D4]">Sócios</p>
+                          <p className="text-[#92B4D4] font-semibold">Sócios</p>
                           <p className="font-semibold text-white">
                             {p.members}
                           </p>
                         </div>
 
                         <div>
-                          <p className="text-[#92B4D4]">Não Sócios</p>
+                          <p className="text-[#92B4D4] font-semibold">Não Sócios</p>
                           <p className="font-semibold text-white">
                             {p.nonMembers}
                           </p>
@@ -113,19 +112,12 @@ export default function MerchPage() {
                       </div>
                     </div>
 
-                    {/* Imagens + nuvem (nuvem sempre visível) */}
-                    <div
-                      className={`relative w-full min-w-0 md:mx-auto md:flex-1 ${
-                        n > 2 ? "md:max-w-xl" : "md:max-w-md"
-                      }`}
-                    >
-                      {/* Nuvem */}
+                    <div className="relative w-full min-w-0 md:mx-auto md:flex-1 md:max-w-md">
                       <div
                         aria-hidden
                         className="pointer-events-none absolute -inset-x-30 -inset-y-30 bg-[url('/images/merch/cloud.svg')] bg-contain bg-center bg-no-repeat mask-[radial-gradient(closest-side,black_40%,transparent_100%)] md:-inset-x-30 md:-inset-y-30"
                       />
 
-                      {/* Mobile (< md): 1 imagem de cada vez, com setas */}
                       <div className="relative w-full md:hidden">
                         {p.images.map((src, idx) => (
                           <div key={idx}>
@@ -148,29 +140,25 @@ export default function MerchPage() {
                                 }`}
                               />
 
-                              {n > 1 && (
-                                <>
-                                  <label
-                                    htmlFor={`merch-${i}-${(idx - 1 + n) % n}`}
-                                    aria-label="Imagem anterior"
-                                    className="absolute left-0 top-1/2 flex min-h-10 min-w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-black/30 text-2xl text-white transition hover:bg-black/50"
-                                  >
-                                    <MdChevronLeft />
-                                  </label>
+                              <label
+                                htmlFor={`merch-${i}-${(idx - 1 + 2) % 2}`}
+                                aria-label="Imagem anterior"
+                                className="absolute left-0 top-1/2 flex min-h-10 min-w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-black/30 text-2xl text-white transition hover:bg-black/50"
+                              >
+                                <MdChevronLeft />
+                              </label>
 
-                                  <label
-                                    htmlFor={`merch-${i}-${(idx + 1) % n}`}
-                                    aria-label="Imagem seguinte"
-                                    className="absolute right-0 top-1/2 flex min-h-10 min-w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-black/30 text-2xl text-white transition hover:bg-black/50"
-                                  >
-                                    <MdChevronRight />
-                                  </label>
+                              <label
+                                htmlFor={`merch-${i}-${(idx + 1) % 2}`}
+                                aria-label="Imagem seguinte"
+                                className="absolute right-0 top-1/2 flex min-h-10 min-w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-black/30 text-2xl text-white transition hover:bg-black/50"
+                              >
+                                <MdChevronRight />
+                              </label>
 
-                                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full bg-black/30 px-2 py-0.5 text-xs text-white">
-                                    {idx + 1} / {n}
-                                  </span>
-                                </>
-                              )}
+                              <span className="absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full bg-black/30 px-2 py-0.5 text-xs text-white">
+                                {idx + 1} / {2}
+                              </span>
                             </div>
                           </div>
                         ))}

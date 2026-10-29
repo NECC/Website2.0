@@ -154,7 +154,7 @@ export default function PartnersPage() {
               </div>
 
               <Image
-                src="/card.png"
+                src="/images/merch/card.png"
                 alt="Cartão de sócio do NECC"
                 width={400}
                 height={250}
