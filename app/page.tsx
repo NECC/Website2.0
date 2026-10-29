@@ -27,8 +27,7 @@ const aboutUsListItem = (info: Info, pos: number) => {
   return (
     <MotionLi
       key={pos}
-      x={-40}
-      y={0}
+      delay={pos * 0.1}
       className="group flex items-center gap-4 py-6 lg:gap-8"
     >
       <span className="w-16 shrink-0 text-6xl font-black text-[#92B4D4]/15 transition-colors duration-300 group-hover:text-[#3B9EFF] lg:w-24 lg:text-7xl">
@@ -64,16 +63,22 @@ const eventListItem = (info: Info, pos: number) => {
       key={pos}
       x={pos % 2 === 0 ? -60 : 60}
       y={0}
-      className="group flex items-center py-6 even:flex-row-reverse lg:py-4"
+      className="group flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:gap-6 sm:even:flex-row-reverse lg:gap-8 lg:py-8"
     >
-      <div className="flex items-center rounded-full border-2 border-[#38547A] bg-[#233047] p-5 transition-colors duration-300 group-hover:border-white lg:p-6">
-        <info.icon className="text-[#C4D8EE] transition-colors duration-300 group-hover:text-white lg:size-8" />
+      <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden rounded-2xl  bg-[#233047] sm:w-64 lg:w-md">
+        <Image
+          src={info.imgUrl!}
+          alt={"Fotografia de " + info.name}
+          fill
+          sizes="(min-width: 1024px) 448px, (min-width: 640px) 256px, 100vw"
+          className="object-cover"
+        />
       </div>
 
-      <div className="h-0.5 w-1/2 bg-linear-to-l from-[#38547A] to-transparent group-odd:bg-linear-to-r sm:w-full" />
+      <div className="hidden h-0.5 flex-1 bg-linear-to-l from-[#38547A] to-transparent group-odd:bg-linear-to-r sm:block" />
 
-      <div className="flex w-full flex-col gap-2 sm:w-1/2">
-        <h2 className="text-base font-bold uppercase text-[#C4D8EE] transition-colors duration-300 group-hover:text-white lg:mb-4 lg:text-xl">
+      <div className="flex min-w-0 flex-col gap-2 sm:w-1/2 sm:flex-none lg:w-1/3">
+        <h2 className="text-base font-bold uppercase text-[#C4D8EE] lg:mb-4 lg:text-xl">
           {info.name}
         </h2>
 
@@ -86,8 +91,8 @@ const eventListItem = (info: Info, pos: number) => {
 };
 
 export default function Home() {
-  const aboutUsElements = aboutUsData.map(aboutUsListItem);
   const eventsElements = eventData.map(eventListItem);
+  const aboutUsElements = aboutUsData.map(aboutUsListItem);
 
   return (
     <MotionProvider>
@@ -150,7 +155,12 @@ export default function Home() {
             </p>
           </Reveal>
 
-          <ol>{aboutUsElements}</ol>
+          <Reveal
+            delay={0.15}
+            className="flex min-w-0 flex-col gap-3 px-6 sm:px-0 lg:gap-4"
+          >
+            <ol className="divide-y divide-[#38547A]/40">{aboutUsElements}</ol>
+          </Reveal>
         </section>
 
         {/* Eventos */}

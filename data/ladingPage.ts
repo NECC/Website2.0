@@ -44,23 +44,27 @@ export const eventData: Info[] = [
     icon: FaWrench,
     description:
       "Sessões práticas sobre tecnologias, linguagens e ferramentas relevantes para a área da computação, conduzidas por membros e convidados.",
+    imgUrl: "/images/merch/merch12.png",
   },
   {
     name: "Sessões de dúvidas",
     icon: FaCircleQuestion,
     description:
       "Espaços de apoio académico onde membros mais experientes ajudam colegas a superar dificuldades nas unidades curriculares do curso.",
+    imgUrl: "/images/merch/merch13.png",
   },
   {
     name: "LIP",
     icon: FaLinux,
     description:
       "Linux Installation Party — um evento dedicado a ajudar estudantes a instalar e configurar Linux, promovendo o software livre e o controlo do próprio ambiente de trabalho.",
+    imgUrl: "/images/merch/merch14.png",
   },
   {
     name: "40 ANOS LCC",
     icon: FaDisplay,
     description:
       "40 Anos da Licenciatura em Ciências da Computação — três dias com uma comunidade inteira e empresas que fazem parte desta história.",
+    imgUrl: "/images/merch/merch15.png",
   },
 ];

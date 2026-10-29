@@ -8,8 +8,9 @@ export interface Partner {
 
 export type Info = {
   name: string;
-  icon: IconType;
   description: string;
+  icon: IconType;
+  imgUrl?: string; 
 };
 
 export type TeamMember = {
