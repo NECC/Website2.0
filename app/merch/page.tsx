@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Reveal, MotionProvider } from "../components/motion";
 import { Metadata } from "next";
 import { products } from "@/data/merch";
@@ -10,12 +11,7 @@ export const metadata: Metadata = {
     "Descobre o merchandising oficial do NECC, o Núcleo de Estudantes de Ciências da Computação da Universidade do Minho.",
 };
 
-const gallery = [
-  "/images/merch/merch13.png",
-  "/images/merch/merch15.png",
-  "/images/merch/merch12.png",
-  "/images/merch/merch14.png",
-];
+const gallery = ["merch13.png", "merch15.png", "merch12.png", "merch14.png"];
 
 export default function MerchPage() {
   return (
@@ -76,64 +72,137 @@ export default function MerchPage() {
 
         <section
           id="colecao"
-          className="mx-auto w-full max-w-400 scroll-mt-20 px-6 py-16 sm:px-10 lg:px-16"
+          className="mx-auto w-full max-w-400 scroll-mt-20 px-4 py-12 sm:px-10 sm:py-16 lg:px-16"
         >
-          {/* Produtos */}
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-            {products.map((p, i) => (
-              <Reveal key={p.name} y={40} delay={(i % 2) * 0.15}>
-                <article className="flex h-full min-h-56 items-center justify-between gap-2 overflow-hidden rounded-2xl border border-[#92B4D4]/10 bg-linear-to-b from-[#38547A] to-[#2B4263] p-6 shadow-[0_0_40px_rgba(56,84,122,0.25)] sm:min-h-60 sm:p-8">
-                  <div className="flex shrink-0 flex-col gap-4">
-                    <h3 className="text-xl font-semibold uppercase leading-tight text-white sm:text-2xl">
-                      {p.name.split(" ").slice(0, -1).join(" ")}
-                      <br />
-                      {p.name.split(" ").slice(-1)}
-                      {p.unit && (
-                        <span className="ml-1 text-[10px] font-normal text-[#92B4D4]">
-                          (UNI.)
-                        </span>
-                      )}
-                    </h3>
+          {/* Produtos: 1 coluna até lg, 2 colunas a partir de lg */}
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
+            {products.map((p, i) => {
+              const n = p.images.length;
+              const nameParts = p.name.split(" ");
 
-                    <div className="flex flex-col gap-3 text-sm">
-                      <div>
-                        <p className="text-[#92B4D4]">Sócios</p>
-                        <p className="font-semibold text-white">{p.members}</p>
-                      </div>
-                      <div>
-                        <p className="text-[#92B4D4]">Não Sócios</p>
-                        <p className="font-semibold text-white">
-                          {p.nonMembers}
-                        </p>
+              return (
+                <Reveal key={p.name} y={40} delay={(i % 2) * 0.15}>
+                  <article className="relative flex h-full flex-col gap-4 overflow-hidden rounded-2xl border border-[#92B4D4]/10 bg-linear-to-b from-[#38547A] to-[#2B4263] p-5 shadow-[0_0_40px_rgba(56,84,122,0.25)] sm:p-8 md:flex-row md:items-center md:justify-between md:gap-4">
+                    {/* Texto */}
+                    <div className="flex shrink-0 flex-col gap-3 md:gap-4">
+                      <h3 className="text-lg font-semibold uppercase leading-tight text-white sm:text-2xl">
+                        {nameParts.slice(0, -1).join(" ")}
+                        <br className="hidden md:block" />{" "}
+                        <span className="md:block">{nameParts.slice(-1)}</span>
+                        {p.unit && (
+                          <span className="ml-1 text-[10px] font-normal text-[#92B4D4]">
+                            (UNI.)
+                          </span>
+                        )}
+                      </h3>
+
+                      <div className="flex gap-8 text-sm md:flex-col md:gap-3">
+                        <div>
+                          <p className="text-[#92B4D4]">Sócios</p>
+                          <p className="font-semibold text-white">
+                            {p.members}
+                          </p>
+                        </div>
+
+                        <div>
+                          <p className="text-[#92B4D4]">Não Sócios</p>
+                          <p className="font-semibold text-white">
+                            {p.nonMembers}
+                          </p>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  {/* Imagens: ocupam todo o espaço restante e sangram até à altura do card */}
-                  <div className="relative -my-6 -mr-2 flex min-w-0 flex-1 self-stretch sm:-my-8">
-                    {/* Um único brilho branco subtil por bloco */}
-                    <div className="pointer-events-none absolute inset-x-[5%] inset-y-[12%] rounded-full bg-white/15 blur-3xl" />
 
-                    {p.images.map((src, idx) => (
-                      <div key={idx} className="relative min-w-0 flex-1">
-                        <Image
-                          src={`/images/merch/${src}`}
-                          alt={`${p.name} ${idx + 1}`}
-                          fill
-                          sizes="(min-width: 768px) 20vw, 40vw"
-                          className="object-contain"
-                        />
+                    {/* Imagens + nuvem (nuvem sempre visível) */}
+                    <div
+                      className={`relative w-full min-w-0 md:mx-auto md:flex-1 ${
+                        n > 2 ? "md:max-w-xl" : "md:max-w-md"
+                      }`}
+                    >
+                      {/* Nuvem */}
+                      <div
+                        aria-hidden
+                        className="pointer-events-none absolute -inset-x-30 -inset-y-30 bg-[url('/images/merch/cloud.svg')] bg-contain bg-center bg-no-repeat mask-[radial-gradient(closest-side,black_40%,transparent_100%)] md:-inset-x-30 md:-inset-y-30"
+                      />
+
+                      {/* Mobile (< md): 1 imagem de cada vez, com setas */}
+                      <div className="relative w-full md:hidden">
+                        {p.images.map((src, idx) => (
+                          <div key={idx}>
+                            <input
+                              type="radio"
+                              name={`merch-${i}`}
+                              id={`merch-${i}-${idx}`}
+                              defaultChecked={idx === 0}
+                              className="peer sr-only"
+                            />
+
+                            <div className="relative hidden h-56 w-full peer-checked:block peer-focus-visible:outline-2 peer-focus-visible:outline-[#92B4D4] sm:h-64">
+                              <Image
+                                src={`/images/merch/${src}`}
+                                alt={`${p.name} ${idx + 1}`}
+                                fill
+                                sizes="90vw"
+                                className={`object-contain p-2 ${
+                                  src === "merch10.png" ? "py-10" : ""
+                                }`}
+                              />
+
+                              {n > 1 && (
+                                <>
+                                  <label
+                                    htmlFor={`merch-${i}-${(idx - 1 + n) % n}`}
+                                    aria-label="Imagem anterior"
+                                    className="absolute left-0 top-1/2 flex min-h-10 min-w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-black/30 text-2xl text-white transition hover:bg-black/50"
+                                  >
+                                    <MdChevronLeft />
+                                  </label>
+
+                                  <label
+                                    htmlFor={`merch-${i}-${(idx + 1) % n}`}
+                                    aria-label="Imagem seguinte"
+                                    className="absolute right-0 top-1/2 flex min-h-10 min-w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-black/30 text-2xl text-white transition hover:bg-black/50"
+                                  >
+                                    <MdChevronRight />
+                                  </label>
+
+                                  <span className="absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full bg-black/30 px-2 py-0.5 text-xs text-white">
+                                    {idx + 1} / {n}
+                                  </span>
+                                </>
+                              )}
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+
+                      <div className="relative hidden w-full items-center md:flex">
+                        {p.images.map((src, idx) => (
+                          <div
+                            key={idx}
+                            className="relative h-44 min-w-0 flex-1 lg:h-52"
+                          >
+                            <Image
+                              src={`/images/merch/${src}`}
+                              alt={`${p.name} ${idx + 1}`}
+                              fill
+                              sizes="(min-width: 1024px) 20vw, 30vw"
+                              className="object-contain p-2"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </article>
+                </Reveal>
+              );
+            })}
           </div>
 
           {/* Galeria */}
-          <div className="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+          <div className="mt-4 grid grid-cols-1 gap-4 sm:mt-6 sm:gap-6 lg:grid-cols-2">
             <Reveal y={40}>
-              <div className="relative h-80 w-full overflow-hidden bg-[#38547A] sm:h-112 lg:h-full lg:min-h-130  rounded-2xl">
+              <div className="relative h-72 w-full overflow-hidden rounded-2xl bg-[#38547A] sm:h-112 lg:h-full lg:min-h-130">
                 <Image
                   src="/images/merch/merch11.png"
                   alt="Peças de merch do NECC"
@@ -144,12 +213,12 @@ export default function MerchPage() {
               </div>
             </Reveal>
 
-            <div className="grid grid-cols-2 gap-6">
+            <div className="grid grid-cols-2 gap-4 sm:gap-6">
               {gallery.map((src, i) => (
                 <Reveal key={i} y={40} delay={i * 0.1}>
-                  <div className="relative aspect-square w-full overflow-hidden rounded-2xl ">
+                  <div className="relative aspect-square w-full overflow-hidden rounded-2xl">
                     <Image
-                      src={src}
+                      src={`/images/merch/${src}`}
                       alt={`Merch NECC ${i + 1}`}
                       fill
                       sizes="(min-width: 1024px) 25vw, 50vw"
@@ -163,11 +232,12 @@ export default function MerchPage() {
 
           {/* Novidades */}
           <Reveal y={40}>
-            <div className="relative mx-auto mt-24 overflow-hidden rounded-2xl border border-[#92B4D4]/10 bg-[#38547A] sm:mt-32 lg:max-w-6xl">
-              <div className="relative z-10 flex flex-col gap-6 p-8 sm:p-12 lg:w-3/5 lg:py-16">
-                <h2 className="text-3xl font-bold text-white sm:text-4xl">
+            <div className="relative mx-auto mt-16 overflow-hidden rounded-2xl border border-[#92B4D4]/10 bg-[#38547A] sm:mt-32 lg:max-w-6xl">
+              <div className="relative z-10 flex flex-col gap-4 p-6 sm:gap-6 sm:p-12 lg:w-3/5 lg:py-16">
+                <h2 className="text-2xl font-bold text-white sm:text-4xl">
                   Novidades Brevemente
                 </h2>
+
                 <p className="text-base leading-relaxed text-white sm:text-lg">
                   Nova merch para festejar os 40 anos de LCC.
                   <br />
@@ -177,7 +247,7 @@ export default function MerchPage() {
 
               <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-2/5 lg:block">
                 <Image
-                  src={"/images/merch/merch2.png"}
+                  src="/images/merch/merch2.png"
                   alt=""
                   aria-hidden
                   fill
