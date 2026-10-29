@@ -4,3 +4,16 @@
     --font-sans: var(--font-inter);
     --font-orbitron: var(--font-orbitron);
 }
+
+@keyframes spinner-fade {
+  0%   { opacity: 1; }
+  100% { opacity: 0.2; }
+}
+
+.spinner-bar {
+  animation: spinner-fade 1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spinner-bar { animation-duration: 2.5s; }
+}

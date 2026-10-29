@@ -106,7 +106,7 @@ export default function PartnersPage() {
               </div>
             </Reveal>
           </header>
-          <div className="grid grid-cols-1 justify-between gap-x-6 gap-y-24 pt-20 sm:grid-cols-[repeat(2,16rem)] lg:grid-cols-[repeat(3,18rem)] lg:gap-y-28 bg-">
+          <div className="grid grid-cols-1 justify-between gap-x-6 gap-y-24 pt-20 sm:grid-cols-[repeat(2,16rem)] sm:[&>*:last-child:nth-child(odd)]:col-span-2 sm:[&>*:last-child:nth-child(odd)]:justify-self-center lg:grid-cols-[repeat(3,18rem)] lg:[&>*:last-child:nth-child(odd)]:col-span-1 lg:[&>*:last-child:nth-child(odd)]:justify-self-auto lg:gap-y-28">
             {partnersData.map((partner, index) => (
               <PartnerCard key={partner.name} partner={partner} index={index} />
             ))}
@@ -136,7 +136,7 @@ export default function PartnersPage() {
                   </a>
 
                   <Image
-                    src="/card.png"
+                    src="/images/merch/card.png"
                     alt="Cartão de sócio do NECC"
                     width={400}
                     height={250}

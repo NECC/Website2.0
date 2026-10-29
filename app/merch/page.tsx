@@ -104,7 +104,9 @@ export default function MerchPage() {
                         </div>
 
                         <div>
-                          <p className="text-[#92B4D4] font-semibold">Não Sócios</p>
+                          <p className="text-[#92B4D4] font-semibold">
+                            Não Sócios
+                          </p>
                           <p className="font-semibold text-white">
                             {p.nonMembers}
                           </p>
@@ -218,30 +220,46 @@ export default function MerchPage() {
             </div>
           </div>
 
-          {/* Novidades */}
-          <Reveal y={40}>
-            <div className="relative mx-auto mt-16 overflow-hidden rounded-2xl border border-[#92B4D4]/10 bg-[#38547A] sm:mt-32 lg:max-w-6xl">
-              <div className="relative z-10 flex flex-col gap-4 p-6 sm:gap-6 sm:p-12 lg:w-3/5 lg:py-16">
-                <h2 className="text-2xl font-bold text-white sm:text-4xl">
+          <Reveal delay={0.1} className="py-20 lg:py-24">
+            <div className="relative flex min-h-40 flex-col justify-center rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 pr-32 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8 sm:pr-64 lg:min-h-60 lg:pr-[28rem]">
+              <div className="flex flex-col gap-2 sm:gap-3">
+                <h2 className="text-xl font-bold text-white sm:text-2xl">
                   Novidades Brevemente
                 </h2>
-
-                <p className="text-base leading-relaxed text-white sm:text-lg">
+                <p className="max-w-md text-sm leading-relaxed text-[#D0E1F3] sm:text-base">
                   Nova merch para festejar os 40 anos de LCC.
                   <br />
                   Acompanha as nossas redes sociais para saber mais.
                 </p>
               </div>
 
-              <div className="pointer-events-none absolute inset-y-0 right-0 hidden w-2/5 lg:block">
+              <div className="pointer-events-none absolute -top-8 -bottom-8 right-2 w-32 sm:right-8 sm:w-52 lg:-top-12 lg:-bottom-12 lg:w-96">
                 <Image
-                  src="/images/merch/merch2.png"
-                  alt=""
-                  aria-hidden
+                  src="/images/merch/soon.png"
+                  alt="Nova merch dos 40 anos de LCC"
                   fill
-                  sizes="40vw"
-                  className="object-cover opacity-60 blur-sm"
+                  sizes="(min-width: 1024px) 384px, (min-width: 640px) 208px, 128px"
+                  className="object-contain"
                 />
+
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div
+                    role="status"
+                    aria-label="A carregar"
+                    className="relative size-20 sm:size-32"
+                  >
+                    {[0, 1, 2, 3, 4, 5, 6, 7].map((i) => (
+                      <span
+                        key={i}
+                        className="spinner-bar absolute top-0 left-1/2 -ml-0.5 h-5 w-1 origin-[50%_40px] rounded-full bg-white/60 sm:-ml-1 sm:h-8 sm:w-2 sm:origin-[50%_64px]"
+                        style={{
+                          transform: `rotate(${i * 45}deg)`,
+                          animationDelay: `${-1 + i * 0.125}s`,
+                        }}
+                      />
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </Reveal>
