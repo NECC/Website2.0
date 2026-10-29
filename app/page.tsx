@@ -122,7 +122,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="absolute bottom-20 left-1/2 z-10 -translate-x-1/2">
+          <div className="absolute bottom-0 left-1/2 z-10 -translate-x-1/2">
             <Reveal
               onLoad
               y={0}
