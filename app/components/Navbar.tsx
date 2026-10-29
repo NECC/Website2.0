@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 const links = [
   { label: "EQUIPA", href: "/team" },
@@ -21,11 +22,20 @@ export default function Navbar() {
     };
   }, [isMenuOpen]);
 
+  const pathname = usePathname();
+
+  const isTransparent = pathname === "/" || pathname === "/merch";
   return (
     <>
-      <nav className="bg-[#0D0F1A]">
+      <nav
+        className={`${
+          isTransparent
+            ? "absolute top-0 left-0 w-full bg-transparent"
+            : "relative bg-[#161E2E]"
+        } z-30`}
+      >
         <div className="flex items-center py-2 sm:py-6 px-6 sm:px-10 lg:px-16 mx-auto max-w-400 ">
-          <Link href="/ " className="mr-5">
+          <Link href="/" className="mr-5">
             <Image
               src="/logo.png"
               alt="Logo NECC"

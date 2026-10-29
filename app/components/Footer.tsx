@@ -1,43 +1,117 @@
-import Image from "next/image";
 import Link from "next/link";
 import { FiInstagram, FiGithub } from "react-icons/fi";
 import { SiDiscord } from "react-icons/si";
 import { MdOutlineMail } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
 
+type FooterLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+type FooterColumn = {
+  title: string;
+  links: FooterLink[];
+};
+
+const columns: FooterColumn[] = [
+  {
+    title: "NECC",
+    links: [
+      { label: "Equipa", href: "/team" },
+      { label: "Parcerias", href: "/partners" },
+      { label: "Merchandising", href: "/merch" },
+    ],
+  },
+  {
+    title: "Alunos",
+    links: [
+      {
+        label: "Torna-te sócio",
+        href: "https://docs.google.com/forms/d/e/1FAIpQLSdtfRnR2gwhfKwyexrOGna_niW74UzhrmkV_U_g1oxBhlUHJQ/viewform",
+        external: true,
+      },
+      {
+        label: "Torna-te colaborador",
+        href: "https://docs.google.com/forms/d/e/1FAIpQLSdtfRnR2gwhfKwyexrOGna_niW74UzhrmkV_U_g1oxBhlUHJQ/viewform",
+        external: true,
+      },
+    ],
+  },
+  {
+    title: "Explorar",
+    links: [
+      {
+        label: "Cartão de sócio",
+        href: "https://socios.necc.pt",
+        external: true,
+      },
+      {
+        label: "Necchange",
+        href: "https://necchange.necc.di.uminho.pt",
+        external: true,
+      },
+    ],
+  },
+];
+
+const socials = [
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/necc.uminho/",
+    Icon: FiInstagram,
+  },
+  { label: "Discord", href: "https://discord.gg/jupjX6hzG", Icon: SiDiscord },
+  { label: "GitHub", href: "https://github.com/NECC", Icon: FiGithub },
+];
+
+const linkClass =
+  "text-sm text-[#C4D8EE]/70 transition-colors duration-200 hover:text-[#3B9EFF]";
+
 export default function Footer() {
   return (
-    <footer
-      className="w-full overflow-hidden bg-[#171F33] bg-cover bg-top-right bg-no-repeat py-12 sm:py-16 lg:py-20"
-      style={{
-        backgroundImage:
-          "linear-gradient(rgba(23, 31, 51, 0.90), rgba(23, 31, 51, 0.8)), url('/footer-bg.png')",
-      }}
-    >
-      <div className="mx-auto flex w-full max-w-400 flex-col gap-10 px-6 sm:px-10 lg:flex-row lg:items-start lg:justify-between lg:px-16">
-        <div className="flex items-center gap-6">
-          <Image
-            src="/logo.png"
-            alt="Logótipo do NECC"
-            width={48}
-            height={48}
-            className="shrink-0"
-          />
+    <footer className="w-full bg-[#161E2E] py-12 sm:py-16">
+      <div className="mx-auto flex w-full max-w-400 flex-col gap-10 px-6 sm:px-10 lg:px-16">
+        {/* Links | contacto (mesmo nível) */}
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between">
+          <nav
+            aria-label="Rodapé"
+            className="grid grid-cols-2 gap-x-8 gap-y-8 sm:flex sm:gap-16"
+          >
+            {columns.map((col) => (
+              <div key={col.title} className="flex flex-col gap-3">
+                <h3 className="mb-1 text-base font-semibold text-white">
+                  {col.title}
+                </h3>
+                {col.links.map((link) =>
+                  link.external ? (
+                    <a
+                      key={link.label}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={linkClass}
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.label}
+                      href={link.href}
+                      className={linkClass}
+                    >
+                      {link.label}
+                    </Link>
+                  ),
+                )}
+              </div>
+            ))}
+          </nav>
 
-          <div className="flex flex-col">
-            <h2 className="text-xl font-bold text-white">NECC</h2>
-
-            <p className="mt-1 max-w-62.5 text-sm leading-snug text-white">
-              Núcleo de Estudantes de Ciências da Computação
-            </p>
-          </div>
-        </div>
-
-        {/* Contactos e redes sociais */}
-        <div className="flex flex-col gap-8 sm:flex-row sm:gap-12 lg:gap-16">
           {/* Contacto */}
           <div className="flex flex-col gap-3">
-            <h3 className="mb-1 text-xs font-bold uppercase  text-[#C4D8EE]">
+            <h3 className="mb-1 text-base font-semibold text-white">
               Contacto
             </h3>
 
@@ -45,62 +119,39 @@ export default function Footer() {
               <IoLocationOutline
                 size={20}
                 className="mt-0.5 shrink-0 text-white"
-                aria-hidden="true"
               />
-
               <span className="text-sm leading-relaxed text-white">
                 DI, sala 1.03
                 <br />
                 Universidade do Minho, Braga
               </span>
             </div>
-
-            <a
-              href="mailto:necc@di.uminho.pt"
-              className="flex items-center gap-3 text-sm text-white transition-colors duration-200 hover:text-[#3B9EFF]"
-            >
-              <MdOutlineMail
-                size={20}
-                className="shrink-0"
-                aria-hidden="true"
-              />
-              necc@di.uminho.pt
-            </a>
-          </div>
-
-          {/* Redes sociais */}
-          <div className="flex flex-col gap-3">
-            <h3 className="mb-1 text-xs font-bold uppercase text-[#C4D8EE]">
-              Social
-            </h3>
-
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              <MdOutlineMail size={20} className="shrink-0 text-white" />
               <a
-                href="https://www.instagram.com/necc_uminho/"
-                target="_blank"
-                className="text-white transition-colors duration-200 hover:text-[#3B9EFF]"
+                href="mailto:necc@di.uminho.pt"
+                className="flex items-center gap-3 text-sm text-white transition-colors duration-200 hover:text-[#3B9EFF]"
               >
-                <FiInstagram size={20} />
-              </a>
-
-              <a
-                href=""
-                target="_blank"
-                rel="noopener "
-                className="text-white transition-colors duration-200 hover:text-[#3B9EFF]"
-              >
-                <SiDiscord size={20} />
-              </a>
-
-              <a
-                href="teste"
-                target="_blank"
-                className="text-white transition-colors duration-200 hover:text-[#3B9EFF]"
-              >
-                <FiGithub size={20} />
+                necc@di.uminho.pt
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Redes sociais */}
+        <div className="flex items-center gap-5">
+          {socials.map(({ label, href, Icon }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className={linkClass}
+            >
+              <Icon size={22} aria-hidden="true" />
+            </a>
+          ))}
         </div>
       </div>
     </footer>
