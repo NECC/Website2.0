@@ -31,7 +31,7 @@ const MemberCard = ({
             width={128}
             height={128}
             alt={`Foto de ${name}`}
-            className="pointer-events-none h-full w-full rounded-full object-cover select-none grayscale transition-all duration-500 group-hover:grayscale-0 group-active:grayscale-0"
+            className="pointer-events-none h-full w-full rounded-full object-cover select-none"
           />
         </div>
 

@@ -221,7 +221,7 @@ export default function MerchPage() {
           </div>
 
           <Reveal delay={0.1} className="py-20 lg:py-24">
-            <div className="relative flex min-h-40 flex-col justify-center rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 pr-32 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8 sm:pr-64 lg:min-h-60 lg:pr-[28rem]">
+            <div className="relative flex min-h-40 flex-col justify-center rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 pr-32 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8 sm:pr-64 lg:min-h-60 lg:pr-112">
               <div className="flex flex-col gap-2 sm:gap-3">
                 <h2 className="text-xl font-bold text-white sm:text-2xl">
                   Novidades Brevemente
