@@ -14,33 +14,36 @@ const links = [
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  const pathname = usePathname();
+  const isTransparent = pathname === "/" || pathname === "/merch"; // Navbar is transparent on the home page and merch page
+
   useEffect(() => {
-    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    const previousOverflow = document.body.style.overflow;
+
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    }
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = previousOverflow;
     };
   }, [isMenuOpen]);
 
-  const pathname = usePathname();
-
-  const isTransparent = pathname === "/" || pathname === "/merch";
   return (
-    <>
+    <div className="relative z-50">
       <nav
-        className={`${
-          isTransparent
-            ? "absolute top-0 left-0 w-full bg-transparent"
-            : "relative bg-[#161E2E]"
-        } z-30`}
+        className={`w-full ${
+          isTransparent ? "absolute inset-x-0 top-0" : "relative bg-[#161E2E]"
+        }`}
       >
-        <div className="flex items-center py-2 sm:py-6 px-6 sm:px-10 lg:px-16 mx-auto max-w-400 ">
-          <Link href="/" className="mr-5">
+        <div className="relative z-30 mx-auto flex max-w-400 items-center px-6 py-2 sm:px-10 sm:py-6 lg:px-16">
+          <Link href="/" className="mr-5 shrink-0">
             <Image
               src="/logo.png"
               alt="Logo NECC"
               width={60}
               height={60}
+              priority
               className="h-8 w-8"
             />
           </Link>
@@ -48,7 +51,7 @@ export default function Navbar() {
           <div className="hidden items-center sm:flex">
             {links.map((link) => (
               <Link
-                key={link.label}
+                key={link.href}
                 href={link.href}
                 className="group relative mx-5 text-sm font-semibold text-white/35 transition-colors hover:text-white"
               >
@@ -61,8 +64,8 @@ export default function Navbar() {
 
           <button
             type="button"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="ml-auto flex h-10 w-10 items-center justify-center sm:hidden"
+            onClick={() => setIsMenuOpen((previous) => !previous)}
+            className="relative ml-auto flex h-10 w-10 shrink-0 items-center justify-center sm:hidden"
           >
             <div className="flex w-7 flex-col gap-1.5">
               <span
@@ -87,18 +90,19 @@ export default function Navbar() {
         </div>
       </nav>
 
-      <nav
-        className={`fixed w-full h-full z-20 bg-black/75 backdrop-blur-lg transition-transform duration-200 sm:hidden ${
+      <div
+        className={`fixed inset-0 z-10 h-dvh w-full bg-black/75 pt-16 backdrop-blur-lg transition-transform duration-200 sm:hidden ${
           isMenuOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
-        <div className="divide-y-2 divide-[#008CCA42] px-6">
+        <div className="relative z-10 divide-y-2 divide-[#008CCA42] px-6">
           {links.map((link) => (
             <Link
-              key={link.label}
+              key={link.href}
               href={link.href}
+              tabIndex={isMenuOpen ? 0 : -1}
               onClick={() => setIsMenuOpen(false)}
-              className="group relative block py-4 text-xl font-semibold text-white/35 transition-colors hover:text-white"
+              className="group relative block py-4 text-xl font-semibold text-white/60 transition-colors hover:text-white"
             >
               {link.label}
 
@@ -106,7 +110,7 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-      </nav>
-    </>
+      </div>
+    </div>
   );
 }

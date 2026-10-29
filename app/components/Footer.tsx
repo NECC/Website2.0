@@ -29,12 +29,12 @@ const columns: FooterColumn[] = [
     links: [
       {
         label: "Torna-te sócio",
-        href: "https://docs.google.com/forms/d/e/1FAIpQLSdtfRnR2gwhfKwyexrOGna_niW74UzhrmkV_U_g1oxBhlUHJQ/viewform",
+        href: "https://forms.gle/nxgKMxYbd5zGGr247",
         external: true,
       },
       {
         label: "Torna-te colaborador",
-        href: "https://docs.google.com/forms/d/e/1FAIpQLSdtfRnR2gwhfKwyexrOGna_niW74UzhrmkV_U_g1oxBhlUHJQ/viewform",
+        href: "https://forms.gle/GQwVzyqGpm2A6aAK8",
         external: true,
       },
     ],
@@ -66,9 +66,6 @@ const socials = [
   { label: "GitHub", href: "https://github.com/NECC", Icon: FiGithub },
 ];
 
-const linkClass =
-  "text-sm text-[#C4D8EE]/70 transition-colors duration-200 hover:text-[#3B9EFF]";
-
 export default function Footer() {
   return (
     <footer className="w-full bg-[#161E2E] py-12 sm:py-16">
@@ -91,7 +88,7 @@ export default function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={linkClass}
+                      className="text-sm text-[#C4D8EE]/70 transition-colors duration-200 hover:text-[#3B9EFF]"
                     >
                       {link.label}
                     </a>
@@ -99,7 +96,7 @@ export default function Footer() {
                     <Link
                       key={link.label}
                       href={link.href}
-                      className={linkClass}
+                      className="text-sm text-[#C4D8EE]/70 transition-colors duration-200 hover:text-[#3B9EFF]"
                     >
                       {link.label}
                     </Link>
@@ -147,7 +144,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className={linkClass}
+              className="text-sm text-[#C4D8EE]/70 transition-colors duration-200 hover:text-[#3B9EFF]"
             >
               <Icon size={22} aria-hidden="true" />
             </a>
