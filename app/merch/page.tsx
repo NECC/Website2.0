@@ -23,7 +23,7 @@ export default function MerchPage() {
             alt="Banner Merch"
             fill
             priority
-            className="object-cover object-left sm:object-center"
+            className="object-cover object-left sm:object-center pointer-events-none"
           />
 
           <div className="absolute inset-x-0 top-0 bottom-28 z-10 flex items-center justify-center px-5 sm:bottom-32 sm:px-10 lg:px-16">

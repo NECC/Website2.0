@@ -16,7 +16,7 @@ function PartnerCard({ partner }: { partner: Partner }) {
         height={256}
         src={partner.imgUrl}
         alt={"Logo de " + partner.name}
-        className="rounded-t-xl object-cover object-center"
+        className="rounded-t-xl object-cover object-center pointer-events-none"
       />
       <p className="p-4 text-center font-semibold text-white">{partner.name}</p>
     </div>
@@ -97,14 +97,13 @@ export default function Home() {
   return (
     <MotionProvider>
       <div className="overflow-x-clip bg-[#161E2E]">
-        {/* Hero */}
         <section className="relative h-screen w-full overflow-hidden">
           <Image
             src="/banner.webp"
             alt="Banner NECC"
             fill
             priority
-            className="object-cover object-center"
+            className="object-cover object-center pointer-events-none"
           />
 
           <div className="absolute bottom-1/2 left-0 z-10 w-full px-6 sm:bottom-60 sm:px-10 lg:px-16">
@@ -195,7 +194,7 @@ export default function Home() {
             exclusivos nos nossos parceiros locais em Braga.
           </p>
 
-          <Marquee speed={60} gradient={false} pauseOnHover>
+          <Marquee speed={60} gradient={false}>
             {partnersData.map((partner) => (
               <div key={partner.name} className="mx-4 w-64">
                 <PartnerCard partner={partner} />
@@ -264,7 +263,9 @@ export default function Home() {
               </div>
 
               <a
-                href=""
+                href="https://forms.gle/nxgKMxYbd5zGGr247"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4] sm:w-fit sm:px-5"
               >
                 Tornar-me sócio
@@ -288,7 +289,9 @@ export default function Home() {
               </div>
 
               <a
-                href=""
+                href="https://forms.gle/GQwVzyqGpm2A6aAK8"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4] sm:w-fit sm:px-5"
               >
                 Tornar-me colaborador
