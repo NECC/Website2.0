@@ -128,7 +128,9 @@ export default function PartnersPage() {
 
                 <div className="flex items-center justify-between gap-2 lg:hidden">
                   <a
-                    href=""
+                    href="https://forms.gle/nxgKMxYbd5zGGr247"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4]"
                   >
                     Tornar-me sócio
@@ -136,7 +138,7 @@ export default function PartnersPage() {
                   </a>
 
                   <Image
-                    src="/images/merch/card.png"
+                    src="/card.png"
                     alt="Cartão de sócio do NECC"
                     width={400}
                     height={250}
@@ -145,7 +147,9 @@ export default function PartnersPage() {
                 </div>
 
                 <a
-                  href=""
+                  href="https://forms.gle/nxgKMxYbd5zGGr247"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="hidden min-h-11 w-fit items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4] sm:px-5 lg:inline-flex"
                 >
                   Tornar-me sócio
@@ -154,7 +158,7 @@ export default function PartnersPage() {
               </div>
 
               <Image
-                src="/images/merch/card.png"
+                src="/card.png"
                 alt="Cartão de sócio do NECC"
                 width={400}
                 height={250}
