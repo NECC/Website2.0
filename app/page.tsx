@@ -71,7 +71,7 @@ const eventListItem = (info: Info, pos: number) => {
           alt={"Fotografia de " + info.name}
           fill
           sizes="(min-width: 1024px) 448px, (min-width: 640px) 256px, 100vw"
-          className="object-cover"
+          className="object-cover pointer-events-none"
         />
       </div>
 
