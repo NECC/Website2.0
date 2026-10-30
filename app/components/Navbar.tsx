@@ -37,7 +37,11 @@ export default function Navbar() {
         }`}
       >
         <div className="relative z-30 mx-auto flex max-w-400 items-center px-6 py-2 sm:px-10 sm:py-6 lg:px-16">
-          <Link href="/" className="mr-5 shrink-0">
+          <Link
+            href="/"
+            onClick={() => setIsMenuOpen(false)}
+            className="mr-5 shrink-0"
+          >
             <Image
               src="/logo.png"
               alt="Logo NECC"
@@ -61,7 +65,6 @@ export default function Navbar() {
               </Link>
             ))}
           </div>
-
           <button
             type="button"
             onClick={() => setIsMenuOpen((previous) => !previous)}
