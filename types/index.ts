@@ -38,3 +38,15 @@ export type Product = {
   nonMembers: string;
   images: string[];
 };
+
+
+type FooterLink = {
+  label: string;
+  href: string;
+  external?: boolean;
+};
+
+export type FooterColumn = {
+  title: string;
+  links: FooterLink[];
+};

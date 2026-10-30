@@ -3,17 +3,7 @@ import { FiInstagram, FiGithub } from "react-icons/fi";
 import { SiDiscord } from "react-icons/si";
 import { MdOutlineMail } from "react-icons/md";
 import { IoLocationOutline } from "react-icons/io5";
-
-type FooterLink = {
-  label: string;
-  href: string;
-  external?: boolean;
-};
-
-type FooterColumn = {
-  title: string;
-  links: FooterLink[];
-};
+import type { FooterColumn } from "@/types";
 
 const columns: FooterColumn[] = [
   {
