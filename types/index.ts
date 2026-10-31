@@ -10,7 +10,7 @@ export type Info = {
   name: string;
   description: string;
   icon: IconType;
-  imgUrl?: string; 
+  imgUrl?: string[];
 };
 
 export type TeamMember = {
@@ -38,7 +38,6 @@ export type Product = {
   nonMembers: string;
   images: string[];
 };
-
 
 type FooterLink = {
   label: string;

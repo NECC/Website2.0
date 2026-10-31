@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 import { Reveal, MotionProvider } from "../components/motion";
 import { Metadata } from "next";
 import { products } from "@/data/merch";
+import { SlArrowRight, SlArrowLeft } from "react-icons/sl";
+import MerchCarousel from "../components/MerchCarousel";
 
 export const metadata: Metadata = {
   title: "Merchandising",
@@ -115,56 +116,8 @@ export default function MerchPage() {
                     </div>
 
                     <div className="relative w-full min-w-0 md:mx-auto md:flex-1 md:max-w-md">
-                      <div
-                        aria-hidden
-                        className="pointer-events-none absolute -inset-x-30 -inset-y-30 bg-[url('/images/merch/cloud.svg')] bg-contain bg-center bg-no-repeat mask-[radial-gradient(closest-side,black_40%,transparent_100%)] md:-inset-x-30 md:-inset-y-30"
-                      />
-
-                      <div className="relative w-full md:hidden">
-                        {p.images.map((src, idx) => (
-                          <div key={idx}>
-                            <input
-                              type="radio"
-                              name={`merch-${i}`}
-                              id={`merch-${i}-${idx}`}
-                              defaultChecked={idx === 0}
-                              className="peer sr-only"
-                            />
-
-                            <div className="relative hidden h-56 w-full peer-checked:block peer-focus-visible:outline-2 peer-focus-visible:outline-[#92B4D4] sm:h-64">
-                              <Image
-                                src={`/images/merch/${src}`}
-                                alt={`${p.name} ${idx + 1}`}
-                                fill
-                                sizes="90vw"
-                                className={`object-contain p-2 ${
-                                  src === "merch10.png" ? "py-10" : ""
-                                }`}
-                              />
-
-                              <label
-                                htmlFor={`merch-${i}-${(idx - 1 + 2) % 2}`}
-                                aria-label="Imagem anterior"
-                                className="absolute left-0 top-1/2 flex min-h-10 min-w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-black/30 text-2xl text-white transition hover:bg-black/50"
-                              >
-                                <MdChevronLeft />
-                              </label>
-
-                              <label
-                                htmlFor={`merch-${i}-${(idx + 1) % 2}`}
-                                aria-label="Imagem seguinte"
-                                className="absolute right-0 top-1/2 flex min-h-10 min-w-10 -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-black/30 text-2xl text-white transition hover:bg-black/50"
-                              >
-                                <MdChevronRight />
-                              </label>
-
-                              <span className="absolute bottom-1 left-1/2 -translate-x-1/2 rounded-full bg-black/30 px-2 py-0.5 text-xs text-white">
-                                {idx + 1} / {2}
-                              </span>
-                            </div>
-                          </div>
-                        ))}
-                      </div>
+                      <div className="pointer-events-none absolute -inset-x-30 -inset-y-30 bg-[url('/images/merch/cloud.svg')] bg-contain bg-center bg-no-repeat mask-[radial-gradient(closest-side,black_40%,transparent_100%)] md:-inset-x-30 md:-inset-y-30" />
+                      <MerchCarousel images={p.images} name={p.name} />
 
                       <div className="relative hidden w-full items-center md:flex">
                         {p.images.map((src, idx) => (
