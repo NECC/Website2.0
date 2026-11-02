@@ -258,7 +258,7 @@ export default function Home() {
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="lg:h-full pb-16 lg:pb-20">
+          <Reveal delay={0.1} className="lg:h-full pb-16 sm:pb-0">
             <div className="group flex h-full flex-col gap-5 rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8 lg:flex-row lg:items-stretch lg:justify-between">
               <div className="flex flex-1 flex-col gap-2 sm:gap-3">
                 <div className="flex flex-col gap-4">
