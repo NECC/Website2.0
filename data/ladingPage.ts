@@ -45,7 +45,7 @@ export const eventData: Info[] = [
     description:
       "Sessões práticas sobre tecnologias, linguagens e ferramentas relevantes para a área da computação, conduzidas por membros e convidados.",
     imgUrl: [
-      "/images/landingPage/workshop.jpeg",
+      "/images/landingPage/workshop1.jpeg",
       "/images/landingPage/workshop2.jpeg",
       "/images/landingPage/workshop3.jpeg",
     ],
