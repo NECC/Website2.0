@@ -48,7 +48,7 @@ export const partnersData: Partner[] = [
     discounts: ["Oferta de um café ou sopa no menu de estudante"],
   },
   {
-    name: "Mikado - Braga & Famalicão",
+    name: "Mikado",
     imgUrl: "/images/partners/partner7.png",
     discounts: ["10% de desconto em qualquer prato para sócios"],
   },

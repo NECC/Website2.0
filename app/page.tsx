@@ -9,20 +9,22 @@ import { MotionLi, Reveal, MotionProvider } from "./components/motion";
 import Link from "next/link";
 import AutoSlideshow from "./components/Slideshow";
 
-function PartnerCard({ partner }: { partner: Partner }) {
+const PartnerCard = ({ partner }: { partner: Partner }) => {
   return (
     <div className="flex flex-col items-center rounded-xl border-2 border-solid border-[#38547A] bg-[#233047]">
       <Image
-        width={256}
-        height={256}
+        width={160}
+        height={160}
         src={partner.imgUrl}
         alt={"Logo de " + partner.name}
-        className="rounded-t-xl object-cover object-center pointer-events-none"
+        className="aspect-square w-full rounded-t-xl object-cover object-center pointer-events-none"
       />
-      <p className="p-4 text-center font-semibold text-white">{partner.name}</p>
+      <p className="p-3 text-center text-sm font-semibold text-white text-nowrap">
+        {partner.name}
+      </p>
     </div>
   );
-}
+};
 
 const aboutUsListItem = (info: Info, pos: number) => {
   return (
@@ -181,11 +183,9 @@ export default function Home() {
         <section className="mx-auto w-full max-w-400 px-6 py-12 sm:px-10 sm:py-16 lg:px-16 lg:py-20">
           <Reveal className="flex items-center gap-6">
             <div className="h-px flex-1 bg-linear-to-r from-transparent to-[#38547A]" />
-
             <h1 className="text-center text-3xl font-bold text-white lg:text-6xl">
               Parceiros
             </h1>
-
             <div className="h-px flex-1 bg-linear-to-l from-transparent to-[#38547A]" />
           </Reveal>
 
@@ -194,15 +194,26 @@ export default function Home() {
             exclusivos nos nossos parceiros locais em Braga.
           </p>
 
-          <Marquee speed={60} gradient={false}>
+          {/* Mobile: scroll horizontal, sem barra */}
+          <div className="flex gap-4 overflow-x-auto [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden md:hidden">
             {partnersData.map((partner) => (
-              <div key={partner.name} className="mx-4 w-64">
+              <div key={partner.name} className="w-48 shrink-0">
                 <PartnerCard partner={partner} />
               </div>
             ))}
-          </Marquee>
-        </section>
+          </div>
 
+          {/* Desktop: marquee */}
+          <div className="hidden md:block">
+            <Marquee speed={60} gradient={false}>
+              {partnersData.map((partner) => (
+                <div key={partner.name} className="mx-4 w-56">
+                  <PartnerCard partner={partner} />
+                </div>
+              ))}
+            </Marquee>
+          </div>
+        </section>
         <section className="mx-auto grid w-full max-w-400 grid-cols-1 gap-4 px-6  text-[#92B4D4] sm:px-10 py-16 lg:grid-cols-2 lg:gap-6 lg:px-16 lg:py-20">
           {/* Merchandising — apenas desktop */}
           <Reveal className="hidden lg:col-span-2 lg:block">
