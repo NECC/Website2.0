@@ -194,7 +194,6 @@ export default function Home() {
             exclusivos nos nossos parceiros locais em Braga.
           </p>
 
-          {/* Mobile: scroll horizontal, sem barra */}
           <div className="flex gap-4 overflow-x-auto [-ms-overflow-style:none] scrollbar-none [&::-webkit-scrollbar]:hidden md:hidden">
             {partnersData.map((partner) => (
               <div key={partner.name} className="w-48 shrink-0">
@@ -203,7 +202,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Desktop: marquee */}
           <div className="hidden md:block">
             <Marquee speed={60} gradient={false}>
               {partnersData.map((partner) => (
@@ -214,12 +212,12 @@ export default function Home() {
             </Marquee>
           </div>
         </section>
-        <section className="mx-auto grid w-full max-w-400 grid-cols-1 gap-4 px-6  text-[#92B4D4] sm:px-10 py-16 lg:grid-cols-2 lg:gap-6 lg:px-16 lg:py-20">
-          {/* Merchandising — apenas desktop */}
-          <Reveal className="hidden lg:col-span-2 lg:block">
-            <div className="group relative flex flex-col justify-between overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#1A2640] to-[#111827] p-5 transition-colors hover:border-[#3B9EFF]/50 hover:from-[#1A2640]/90 hover:to-[#111827]/90 sm:p-8 lg:flex-row lg:items-center lg:p-6">
-              <div className="relative z-10 flex max-w-2xl flex-col items-start gap-4">
-                <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-5xl">
+        <section className="mx-auto grid w-full max-w-400 grid-cols-1 gap-4 px-6 text-[#92B4D4] sm:px-10 lg:auto-rows-72 lg:grid-cols-2 lg:gap-6 lg:px-16 lg:py-20">
+          {/* Merchandising */}
+          <Reveal className="hidden lg:col-span-2 lg:block lg:h-full">
+            <div className="group relative flex h-full items-center overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#1A2640] to-[#111827] p-8 transition-colors hover:border-[#3B9EFF]/50 hover:from-[#1A2640]/90 hover:to-[#111827]/90">
+              <div className="relative z-10 flex max-w-[55%] flex-col items-start gap-4">
+                <h2 className="text-3xl font-bold text-white lg:text-5xl">
                   Merchandising
                 </h2>
 
@@ -231,74 +229,84 @@ export default function Home() {
 
                 <Link
                   href="/merch"
-                  className="inline-flex min-h-11 w-full items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4] sm:w-fit sm:px-5"
+                  className="inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4]"
                 >
                   Explorar merchandising
                   <FaArrowRight />
                 </Link>
               </div>
 
-              <div className="relative hidden h-64 w-80 shrink-0 lg:block">
+              <div className="pointer-events-none absolute inset-y-0 right-8 w-80">
                 <Image
                   src="/images/merch/merch12.png"
                   alt="Estudante a vestir uma t-shirt do NECC"
                   width={196}
                   height={256}
-                  className="absolute top-8 left-4 z-20 w-36 rounded-lg border border-white/10 object-cover shadow-xl transition-transform duration-300 group-hover:-rotate-3"
+                  className="absolute top-1/2 left-4 z-20 w-36 -translate-y-1/2 rounded-lg border border-white/10 object-cover shadow-xl transition-transform duration-300 group-hover:-rotate-3"
                 />
-
                 <Image
                   src="/images/merch/merch5.png"
                   alt="T-shirt do NECC"
                   width={196}
                   height={256}
-                  className="absolute top-0 left-36 z-10 w-36  object-cover shadow-xl transition-transform duration-300 group-hover:rotate-3"
+                  className="absolute top-1/2 left-36 z-10 w-36 translate-y-[-60%] object-cover shadow-xl transition-transform duration-300 group-hover:rotate-3"
                 />
               </div>
             </div>
           </Reveal>
 
-          <Reveal delay={0.1} className="lg:h-full pb-16 sm:pb-0">
-            <div className="group flex h-full flex-col gap-5 rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8 lg:flex-row lg:items-stretch lg:justify-between">
-              <div className="flex flex-1 flex-col gap-2 sm:gap-3">
-                <div className="flex flex-col gap-4">
-                  <h2 className="text-xl font-bold text-white sm:text-2xl">
-                    Torna-te sócio
-                  </h2>
+          <Reveal delay={0.1} className="py-16 lg:hidden">
+            <div className="flex flex-col gap-5 rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8">
+              <div className="flex flex-col gap-2 sm:gap-3">
+                <h2 className="text-xl font-bold text-white sm:text-2xl">
+                  Torna-te sócio
+                </h2>
 
-                  <p className="max-w-md text-sm leading-relaxed text-[#D0E1F3] sm:text-base">
-                    Participa nos nossos eventos e usufrui de benefícios
-                    exclusivos para a comunidade de Ciências da Computação.
-                  </p>
-                </div>
+                <p className="max-w-md text-sm leading-relaxed text-[#D0E1F3] sm:text-base">
+                  Participa nos nossos eventos e usufrui de benefícios
+                  exclusivos para a comunidade de Ciências da Computação.
+                </p>
+              </div>
 
-                {/* Mobile */}
-                <div className="flex items-center justify-between gap-2 lg:hidden">
-                  <a
-                    href="https://forms.gle/nxgKMxYbd5zGGr247"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4]"
-                  >
-                    Tornar-me sócio
-                    <FaArrowRight />
-                  </a>
-
-                  <Image
-                    src="/card.png"
-                    alt="Cartão de sócio do NECC"
-                    width={400}
-                    height={250}
-                    className="h-auto w-20 object-contain transition-transform duration-300 group-hover:-rotate-3 sm:w-44"
-                  />
-                </div>
-
-                {/* Desktop */}
+              <div className="flex items-center justify-between gap-2">
                 <a
                   href="https://forms.gle/nxgKMxYbd5zGGr247"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto hidden min-h-11 w-fit items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4] sm:px-5 lg:inline-flex"
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4]"
+                >
+                  Tornar-me sócio
+                  <FaArrowRight />
+                </a>
+
+                <Image
+                  src="/card.png"
+                  alt="Cartão de sócio do NECC"
+                  width={400}
+                  height={250}
+                  className="h-auto w-20 object-contain sm:w-44"
+                />
+              </div>
+            </div>
+          </Reveal>
+
+          <Reveal delay={0.1} className="hidden lg:block lg:h-full">
+            <div className="group relative flex h-full items-center overflow-hidden rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-8 transition-colors duration-300 hover:border-[#3B9EFF]/50">
+              <div className="relative z-10 flex max-w-[60%] flex-col items-start gap-4">
+                <h2 className="text-2xl font-bold text-white">
+                  Torna-te sócio
+                </h2>
+
+                <p className="max-w-md text-base leading-relaxed text-[#D0E1F3]">
+                  Participa nos nossos eventos e usufrui de benefícios
+                  exclusivos para a comunidade de Ciências da Computação.
+                </p>
+
+                <a
+                  href="https://forms.gle/nxgKMxYbd5zGGr247"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4]"
                 >
                   Tornar-me sócio
                   <FaArrowRight />
@@ -310,19 +318,19 @@ export default function Home() {
                 alt="Cartão de sócio do NECC"
                 width={400}
                 height={250}
-                className="hidden object-contain transition-transform duration-300 group-hover:-rotate-3 lg:block w-40 xl:w-50 lg:self-center"
+                className="pointer-events-none absolute top-1/2 right-6 h-auto w-40 -translate-y-1/2 object-contain transition-transform duration-300 group-hover:-rotate-3 xl:right-10 xl:w-50"
               />
             </div>
           </Reveal>
 
           <Reveal delay={0.2} className="hidden lg:block lg:h-full">
-            <div className="group relative flex h-full min-h-80 flex-col overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#233047] to-[#19283F] p-8 transition-colors duration-300 hover:border-[#92B4D4]/40">
-              <div className="relative z-10 flex max-w-[65%] flex-1 flex-col items-start gap-4">
-                <h2 className="text-xl font-bold text-white sm:text-2xl">
+            <div className="group relative flex h-full items-center overflow-hidden rounded-2xl border border-white/10 bg-linear-to-br from-[#233047] to-[#19283F] p-8 transition-colors duration-300 hover:border-[#92B4D4]/40">
+              <div className="relative z-10 flex max-w-[60%] flex-col items-start gap-4">
+                <h2 className="text-2xl font-bold text-white">
                   Torna-te colaborador
                 </h2>
 
-                <p className="text-sm leading-relaxed text-[#92B4D4] sm:text-base">
+                <p className="text-base leading-relaxed text-[#92B4D4]">
                   Junta-te a um ou mais departamentos, desenvolve novas
                   competências e ajuda a dinamizar a comunidade académica.
                 </p>
@@ -331,7 +339,7 @@ export default function Home() {
                   href="https://forms.gle/GQwVzyqGpm2A6aAK8"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="mt-auto inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-4 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4] sm:px-5"
+                  className="inline-flex min-h-11 w-fit items-center justify-center gap-2 rounded-lg border border-[#92B4D4]/30 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:border-[#92B4D4]/60 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#92B4D4]"
                 >
                   Tornar-me colaborador
                   <FaArrowRight />
@@ -343,7 +351,7 @@ export default function Home() {
                 alt="Cartão de colaborador do NECC"
                 width={400}
                 height={500}
-                className="absolute right-6 top-1/2 h-auto w-28 -translate-y-1/2 rotate-6 object-contain transition-transform duration-300 group-hover:rotate-12 xl:right-10 xl:w-36"
+                className="pointer-events-none absolute top-1/2 right-6 h-auto w-28 -translate-y-1/2 rotate-6 object-contain transition-transform duration-300 group-hover:rotate-12 xl:right-10 xl:w-36"
               />
             </div>
           </Reveal>
