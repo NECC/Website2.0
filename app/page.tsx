@@ -7,7 +7,7 @@ import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { FaArrowRight } from "react-icons/fa";
 import { MotionLi, Reveal, MotionProvider } from "./components/motion";
 import Link from "next/link";
-import AutoSlideshow from "./components/Slideshow";
+import Slideshow from "./components/Slideshow";
 
 const PartnerCard = ({ partner }: { partner: Partner }) => {
   return (
@@ -69,11 +69,11 @@ const eventListItem = (info: Info, pos: number) => {
       className="group flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:gap-6 sm:even:flex-row-reverse lg:gap-8 lg:py-8"
     >
       <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden rounded-2xl  bg-[#233047] sm:w-64 lg:w-md">
-        <AutoSlideshow
+        <Slideshow
           images={info.imgUrl ?? []}
           alt={"Fotografia de " + info.name}
           sizes="(min-width: 1024px) 448px, (min-width: 640px) 256px, 100vw"
-          interval={4000}
+          delay={pos * 1500}
         />
       </div>
 

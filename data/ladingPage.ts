@@ -22,7 +22,7 @@ export const aboutUsData: Info[] = [
     name: "Fundação",
     icon: FaCalendar,
     description:
-      "Fundado em 2009, o NECC é um dos núcleos de estudantes mais antigos da Universidade do Minho, com mais de duas décadas ao serviço da comunidade académica.",
+      "As raízes do NECC estão no GEMCC (Grupo de Estudantes de Matemática e Ciências de Computação), criado por alunos da antiga licenciatura em 1994. Em 2009 passou a chamar-se NECC e continua, desde então, ao serviço da comunidade de Ciências da Computação.",
   },
   {
     name: "Localização",
@@ -44,21 +44,28 @@ export const eventData: Info[] = [
     icon: FaWrench,
     description:
       "Sessões práticas sobre tecnologias, linguagens e ferramentas relevantes para a área da computação, conduzidas por membros e convidados.",
-    imgUrl: ["/images/landingPage/workshop.jpeg"],
+    imgUrl: [
+      "/images/landingPage/workshop.jpeg",
+      "/images/landingPage/workshop2.jpeg",
+      "/images/landingPage/workshop3.jpeg",
+    ],
   },
   {
     name: "Sessões de dúvidas",
     icon: FaCircleQuestion,
     description:
       "Espaços de apoio académico onde membros mais experientes ajudam colegas a superar dificuldades nas unidades curriculares do curso.",
-    imgUrl: ["/images/landingPage/duvidas.jpeg"],
+    imgUrl: [
+      "/images/landingPage/duvidas1.jpeg",
+      "/images/landingPage/duvidas2.jpeg",
+    ],
   },
   {
     name: "LIP",
     icon: FaLinux,
     description:
       "Linux Installation Party — um evento dedicado a ajudar estudantes a instalar e configurar Linux, promovendo o software livre e o controlo do próprio ambiente de trabalho.",
-    imgUrl: ["/images/landingPage/lip.jpeg", "/images/landingPage/40anos.jpeg"],
+    imgUrl: ["/images/landingPage/lip.jpeg"],
   },
   {
     name: "40 ANOS LCC",

@@ -3,53 +3,40 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 
-export default function AutoSlideshow({
+export default function Slideshow({
   images,
   alt,
   sizes,
-  interval = 4000,
+  delay = 0,
 }: {
   images: string[];
   alt: string;
   sizes: string;
-  interval?: number;
+  delay?: number;
 }) {
   const [idx, setIdx] = useState(0);
-  const [animate, setAnimate] = useState(true);
   const total = images.length;
 
   useEffect(() => {
     if (total <= 1) return;
 
-    const timer = setInterval(() => setIdx((i) => i + 1), interval);
-    return () => clearInterval(timer);
-  }, [total, interval]);
+    const timeout = setTimeout(() => {
+      const timer = setInterval(() => {
+        setIdx((i) => (i + 1) % total);
+      }, 4000); // Change slide every 4 seconds
 
-  useEffect(() => {
-    if (idx !== total) return;
+      return () => clearInterval(timer);
+    }, delay);
 
-    const timer = setTimeout(() => {
-      setAnimate(false);
-      setIdx(0);
-    }, 700);
-
-    return () => clearTimeout(timer);
-  }, [idx, total]);
-
-  useEffect(() => {
-    if (!animate) {
-      requestAnimationFrame(() => setAnimate(true));
-    }
-  }, [animate]);
+    return () => clearTimeout(timeout);
+  }, [total, 4000, delay]);
 
   return (
     <div
-      className={`flex h-full w-full ${
-        animate ? "transition-transform duration-700 ease-in-out" : ""
-      }`}
+      className="flex h-full w-full transition-transform duration-700 ease-in-out"
       style={{ transform: `translateX(-${idx * 100}%)` }}
     >
-      {[...images, ...(total > 1 ? [images[0]] : [])].map((src, i) => (
+      {images.map((src, i) => (
         <div key={i} className="relative h-full w-full shrink-0">
           <Image
             src={src}
