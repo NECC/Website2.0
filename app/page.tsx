@@ -222,8 +222,8 @@ export default function Home() {
                 </h2>
 
                 <p className="max-w-xl text-sm leading-relaxed text-[#92B4D4] sm:text-base">
-                  Hoodies, t-shirts, canecas e muito mais. Mostra o teu espírito
-                  académico e aproveita descontos exclusivos por seres sócio do
+                  Descobre a nossa coleção de hoodies, t-shirts, casacos e muito
+                  mais. Mostra o teu espírito académico e veste as cores do
                   NECC.
                 </p>
 
@@ -262,9 +262,9 @@ export default function Home() {
                   Torna-te sócio
                 </h2>
 
-                <p className="max-w-md text-sm leading-relaxed text-[#D0E1F3] sm:text-base">
-                  Participa nos nossos eventos e usufrui de benefícios
-                  exclusivos para a comunidade de Ciências da Computação.
+                <p className="max-w-md text-base leading-relaxed text-[#D0E1F3]">
+                  Torna-te sócio do NECC e usufrui de descontos exclusivos nos
+                  nossos parceiros e na nossa merchandising.
                 </p>
               </div>
 
@@ -298,8 +298,8 @@ export default function Home() {
                 </h2>
 
                 <p className="max-w-md text-base leading-relaxed text-[#D0E1F3]">
-                  Participa nos nossos eventos e usufrui de benefícios
-                  exclusivos para a comunidade de Ciências da Computação.
+                  Torna-te sócio do NECC e usufrui de descontos exclusivos nos
+                  nossos parceiros e na nossa merchandising.
                 </p>
 
                 <a
@@ -331,8 +331,9 @@ export default function Home() {
                 </h2>
 
                 <p className="text-base leading-relaxed text-[#92B4D4]">
-                  Junta-te a um ou mais departamentos, desenvolve novas
-                  competências e ajuda a dinamizar a comunidade académica.
+                  Junta-te a um dos nossos departamentos, desenvolve novas
+                  competências e contribui para dinamizar a comunidade
+                  académica.
                 </p>
 
                 <a

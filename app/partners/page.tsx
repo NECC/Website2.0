@@ -31,7 +31,7 @@ const PartnerCard = ({
             alt={`Logo de ${partner.name}`}
             width={176}
             height={176}
-            className="pointer-events-none h-full w-fullobject-contain"
+            className="pointer-events-none h-full w-full object-contain select-none"
           />
         </div>
 
@@ -64,7 +64,7 @@ export default function PartnersPage() {
   return (
     <MotionProvider>
       <main className="bg-[#161E2E]">
-        <div className="mx-auto w-full max-w-400 px-6 py-16 sm:px-10 lg:px-16">
+        <div className="mx-auto w-full max-w-400 px-6 pt-16 pb-16 lg:pb-20 sm:px-10 lg:px-16">
           {/* Cabeçalho */}
           <header className="mb-9 sm:mb-20">
             {/* Título Mobile */}
@@ -85,26 +85,12 @@ export default function PartnersPage() {
             <div className="hidden items-center gap-6 sm:flex">
               <Reveal y={30}>
                 <h1 className="shrink-0 text-4xl font-extrabold uppercase tracking-tight text-white lg:text-5xl">
-                  PARCEIROS
+                  PARCERIAS
                 </h1>
               </Reveal>
 
               <div className="h-0.5 flex-1 bg-linear-to-r from-[#38547A] to-transparent" />
             </div>
-
-            <Reveal y={20} delay={0.2}>
-              <div className="mt-4 max-w-2xl text-center text-xs leading-relaxed text-[#92B4D4] sm:text-start sm:text-sm lg:text-base">
-                <p>
-                  Conhece os nossos parceiros e explora as diversas vantagens
-                  que tens por ser sócio do NECC.
-                </p>
-
-                <p>
-                  Visita estes espaços para o que precisares e aproveita os
-                  descontos!
-                </p>
-              </div>
-            </Reveal>
           </header>
           <div className="grid grid-cols-1 justify-between gap-x-6 gap-y-24 pt-20 sm:grid-cols-[repeat(2,16rem)] sm:[&>*:last-child:nth-child(odd)]:col-span-2 sm:[&>*:last-child:nth-child(odd)]:justify-self-center lg:grid-cols-[repeat(3,18rem)] lg:[&>*:last-child:nth-child(odd)]:col-span-1 lg:[&>*:last-child:nth-child(odd)]:justify-self-auto lg:gap-y-28">
             {partnersData.map((partner, index) => (
@@ -112,7 +98,7 @@ export default function PartnersPage() {
             ))}
           </div>
           {/* Sócios */}
-          <Reveal delay={0.1} className="py-16 lg:py-20">
+          <Reveal delay={0.1} className="pt-16 lg:pt-20">
             <div className="flex flex-col gap-5 rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2 sm:gap-3">
@@ -121,8 +107,8 @@ export default function PartnersPage() {
                   </h2>
 
                   <p className="max-w-md text-sm leading-relaxed text-[#D0E1F3] sm:text-base">
-                    Participa nos nossos eventos e usufrui de benefícios
-                    exclusivos para a comunidade de Ciências da Computação.
+                    Torna-te sócio do NECC e usufrui de descontos exclusivos nos
+                    nossos parceiros e na nossa merchandising.
                   </p>
                 </div>
 
