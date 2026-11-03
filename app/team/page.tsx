@@ -104,17 +104,6 @@ export default function TeamPage() {
               </Reveal>
             </div>
 
-            {/* Descrição */}
-            <Reveal y={20} delay={0.2}>
-              <div className="mt-4 max-w-2xl text-center text-xs leading-relaxed text-[#92B4D4] sm:text-start sm:text-sm lg:text-base">
-                <p>Aqui podes conhecer a equipa do NECC.</p>
-                <p>
-                  Que trabalha arduamente para que tenhas o melhor percurso
-                  académico e tires o maior proveito do teu curso.
-                </p>
-              </div>
-            </Reveal>
-
             {/* Ano Mobile */}
             <Reveal y={20} delay={0.3}>
               <p className="mt-4 block text-end md:text-4xl text-3xl font-bold text-[#38547A] sm:hidden">

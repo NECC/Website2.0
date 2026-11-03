@@ -85,26 +85,12 @@ export default function PartnersPage() {
             <div className="hidden items-center gap-6 sm:flex">
               <Reveal y={30}>
                 <h1 className="shrink-0 text-4xl font-extrabold uppercase tracking-tight text-white lg:text-5xl">
-                  PARCEIROS
+                  PARCERIAS
                 </h1>
               </Reveal>
 
               <div className="h-0.5 flex-1 bg-linear-to-r from-[#38547A] to-transparent" />
             </div>
-
-            <Reveal y={20} delay={0.2}>
-              <div className="mt-4 max-w-2xl text-center text-xs leading-relaxed text-[#92B4D4] sm:text-start sm:text-sm lg:text-base">
-                <p>
-                  Conhece os nossos parceiros e explora as diversas vantagens
-                  que tens por ser sócio do NECC.
-                </p>
-
-                <p>
-                  Visita estes espaços para o que precisares e aproveita os
-                  descontos!
-                </p>
-              </div>
-            </Reveal>
           </header>
           <div className="grid grid-cols-1 justify-between gap-x-6 gap-y-24 pt-20 sm:grid-cols-[repeat(2,16rem)] sm:[&>*:last-child:nth-child(odd)]:col-span-2 sm:[&>*:last-child:nth-child(odd)]:justify-self-center lg:grid-cols-[repeat(3,18rem)] lg:[&>*:last-child:nth-child(odd)]:col-span-1 lg:[&>*:last-child:nth-child(odd)]:justify-self-auto lg:gap-y-28">
             {partnersData.map((partner, index) => (
@@ -121,8 +107,8 @@ export default function PartnersPage() {
                   </h2>
 
                   <p className="max-w-md text-sm leading-relaxed text-[#D0E1F3] sm:text-base">
-                    Participa nos nossos eventos e usufrui de benefícios
-                    exclusivos para a comunidade de Ciências da Computação.
+                    Torna-te sócio do NECC e usufrui de descontos exclusivos nos
+                    nossos parceiros e na nossa merchandising.
                   </p>
                 </div>
 
