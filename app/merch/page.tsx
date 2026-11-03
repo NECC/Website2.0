@@ -39,8 +39,7 @@ export default function MerchPage() {
                 <h2 className="max-w-4xl text-sm leading-relaxed text-[#92B4D4] sm:text-base lg:text-lg">
                   Aqui podes encontrar a merch do NECC.
                   <br className="hidden sm:block" /> Se estiveres interessado em
-                  comprar alguma peça, basta dirigires-te à sala do
-                  departamento.
+                  comprar alguma peça, basta procurares-nos na nossa sala.
                 </h2>
               </Reveal>
 
