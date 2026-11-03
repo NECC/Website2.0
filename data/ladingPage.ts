@@ -54,7 +54,7 @@ export const eventData: Info[] = [
     name: "Sessões de dúvidas",
     icon: FaCircleQuestion,
     description:
-      "Espaços de apoio académico onde membros mais experientes ajudam colegas a superar dificuldades nas unidades curriculares do curso.",
+      "Espaços de apoio académico onde professores e alunos mais experientes ajudam a tirar duvidas para uma melhor preparação dos alunos para um teste.",
     imgUrl: [
       "/images/landingPage/duvidas1.jpeg",
       "/images/landingPage/duvidas2.jpeg",
@@ -64,14 +64,17 @@ export const eventData: Info[] = [
     name: "LIP",
     icon: FaLinux,
     description:
-      "Linux Installation Party — um evento dedicado a ajudar estudantes a instalar e configurar Linux, promovendo o software livre e o controlo do próprio ambiente de trabalho.",
-    imgUrl: ["/images/landingPage/lip.jpeg"],
+      "Linux Installation Party ou LIP é um evento organizado pelo NECC e pelo Cesium que visa em ajudar os novos alunos a entrarem num novo ambiente de trabalho, o Linux, promovendo o software livre e o controlo da sua própria máquina.",
+    imgUrl: [
+      "/images/landingPage/Lipphoto2.jpeg",
+      "/images/landingPage/Lipphoto3.jpeg"
+    ],
   },
   {
     name: "40 ANOS LCC",
     icon: FaDisplay,
     description:
-      "40 Anos da Licenciatura em Ciências da Computação — três dias com uma comunidade inteira e empresas que fazem parte desta história.",
+      "40 Anos da Licenciatura em Ciências da Computação, em 2027 vamos celebrar quatro décadas de história com um grande evento de 3 dias! Prepara-te para palestras, workshops, atividades e a presença de empresas do setor da computação. Um ponto de encontro imperdível para alunos, ex-alunos e todos os que queiram fazer parte desta celebração.",
     imgUrl: ["/images/landingPage/40anos.jpeg"],
   },
 ];
