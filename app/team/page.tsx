@@ -49,10 +49,10 @@ const MemberCard = ({
 
 const SectionWrapper = ({ title, children }: SectionWrapperProps) => {
   return (
-    <div className="mb-12 flex flex-row gap-4 sm:mb-16 sm:gap-6 lg:gap-8">
+    <div className="mb-12 flex flex-row gap-1 sm:mb-16 sm:gap-6 lg:gap-8">
       {/* Título lateral */}
       <div className="flex w-8 shrink-0 items-center justify-start sm:w-12 lg:w-16">
-        <h2 className="rotate-180 font-bold uppercase tracking-widest text-[#38547A] [writing-mode:vertical-rl] md:text-4xl text-3xl ">
+        <h2 className="rotate-180 font-bold uppercase tracking-widest text-[#38547A] [writing-mode:vertical-rl] md:text-4xl text-2xl ">
           {title}
         </h2>
       </div>
@@ -69,7 +69,7 @@ export default function TeamPage() {
   return (
     <MotionProvider>
       <main className="bg-[#161E2E]">
-        <div className="mx-auto w-full max-w-400 px-6 py-16 sm:px-10 lg:px-16">
+        <div className="mx-auto w-full max-w-400 px-6 pt-16 pb-16 lg:pb-20 sm:px-10 lg:px-16">
           {/* Cabeçalho */}
           <header className="mb-9 sm:mb-20">
             {/* Título Mobile */}
@@ -125,7 +125,7 @@ export default function TeamPage() {
 
           {/* Direção */}
           <SectionWrapper title="Direção">
-            <div className="grid grid-cols-2 justify-start gap-3 sm:w-fit sm:gap-4 md:grid-cols-3 lg:gap-6">
+            <div className="grid grid-cols-2 justify-start gap-2 sm:w-fit sm:gap-4 md:grid-cols-3 lg:gap-6">
               {teamData.direcao.map((member, index) => (
                 <MemberCard
                   key={`${member.role}-${member.name}`}
@@ -140,7 +140,7 @@ export default function TeamPage() {
           <div className="mb-20 grid grid-cols-1 gap-y-12 md:mb-24 lg:gap-16 xl:grid-cols-2 xl:gap-8">
             {/* Assembleia Geral */}
             <SectionWrapper title="Assembleia Geral">
-              <div className="grid grid-cols-2 items-center justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+              <div className="grid grid-cols-2 items-center justify-start gap-2 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
                 {teamData.assembleia.map((member, index) => (
                   <MemberCard
                     key={`${member.role}-${member.name}`}
@@ -153,7 +153,7 @@ export default function TeamPage() {
 
             {/* Conselho Fiscal */}
             <SectionWrapper title="Conselho Fiscal">
-              <div className="grid grid-cols-2 justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+              <div className="grid grid-cols-2 justify-start gap-2 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
                 {teamData.conselho.map((member, index) => (
                   <MemberCard
                     key={`${member.role}-${member.name}`}
@@ -166,7 +166,7 @@ export default function TeamPage() {
           </div>
 
           {/* Departamentos */}
-          <div className="mt-12 sm:mt-20">
+          <div className="mt-12 -mb-12 sm:mt-20 sm:-mb-16">
             {/* Título Mobile */}
             <Reveal y={30}>
               <div className="mb-12 flex justify-center xl:hidden">
@@ -208,7 +208,7 @@ export default function TeamPage() {
 
               {/* Pedagógico */}
               <SectionWrapper title="Pedagógico">
-                <div className="grid grid-cols-2 justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+                <div className="grid grid-cols-2 justify-start gap-2 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
                   {teamData.departamentos.pedagogico.map((member, index) => (
                     <MemberCard
                       key={`${member.role}-${member.name}`}
@@ -221,7 +221,7 @@ export default function TeamPage() {
 
               {/* Recreativo */}
               <SectionWrapper title="Recreativo">
-                <div className="grid grid-cols-2 justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+                <div className="grid grid-cols-2 justify-start gap-2 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
                   {teamData.departamentos.recreativo.map((member, index) => (
                     <MemberCard
                       key={`${member.role}-${member.name}`}
@@ -234,7 +234,7 @@ export default function TeamPage() {
 
               {/* Comunicação */}
               <SectionWrapper title="Comunicação">
-                <div className="grid grid-cols-2 justify-start gap-3 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
+                <div className="grid grid-cols-2 justify-start gap-2 sm:flex sm:flex-wrap sm:gap-4 lg:gap-6">
                   {teamData.departamentos.comunicacao.map((member, index) => (
                     <MemberCard
                       key={`${member.role}-${member.name}`}

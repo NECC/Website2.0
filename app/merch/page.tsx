@@ -72,7 +72,7 @@ export default function MerchPage() {
 
         <section
           id="colecao"
-          className="mx-auto w-full max-w-400 scroll-mt-20 px-4 py-12 sm:px-10 sm:py-16 lg:px-16"
+          className="mx-auto w-full max-w-400 scroll-mt-20 px-4 pt-12 pb-16 sm:px-10 sm:pt-16 lg:px-16 lg:pb-20"
         >
           <div className="grid grid-cols-1 gap-4 sm:gap-6 lg:grid-cols-2">
             {products.map((p, i) => {
@@ -172,7 +172,7 @@ export default function MerchPage() {
             </div>
           </div>
 
-          <Reveal delay={0.1} className="py-20 lg:py-24">
+          <Reveal delay={0.1} className="pt-20 lg:pt-24">
             <div className="relative flex min-h-40 flex-col justify-center rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 pr-32 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8 sm:pr-64 lg:min-h-60 lg:pr-112">
               <div className="flex flex-col gap-2 sm:gap-3">
                 <h2 className="text-xl font-bold text-white sm:text-2xl">

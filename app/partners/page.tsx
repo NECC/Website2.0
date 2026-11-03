@@ -31,7 +31,7 @@ const PartnerCard = ({
             alt={`Logo de ${partner.name}`}
             width={176}
             height={176}
-            className="pointer-events-none h-full w-fullobject-contain"
+            className="pointer-events-none h-full w-full object-contain select-none"
           />
         </div>
 
@@ -64,7 +64,7 @@ export default function PartnersPage() {
   return (
     <MotionProvider>
       <main className="bg-[#161E2E]">
-        <div className="mx-auto w-full max-w-400 px-6 py-16 sm:px-10 lg:px-16">
+        <div className="mx-auto w-full max-w-400 px-6 pt-16 pb-16 lg:pb-20 sm:px-10 lg:px-16">
           {/* Cabeçalho */}
           <header className="mb-9 sm:mb-20">
             {/* Título Mobile */}
@@ -112,7 +112,7 @@ export default function PartnersPage() {
             ))}
           </div>
           {/* Sócios */}
-          <Reveal delay={0.1} className="py-16 lg:py-20">
+          <Reveal delay={0.1} className="pt-16 lg:pt-20">
             <div className="flex flex-col gap-5 rounded-2xl border border-[#3B9EFF]/20 bg-linear-to-br from-[#15428C] to-[#19283F] p-5 transition-colors duration-300 hover:border-[#3B9EFF]/50 sm:p-8 lg:flex-row lg:items-center lg:justify-between">
               <div className="flex flex-col gap-4">
                 <div className="flex flex-col gap-2 sm:gap-3">
