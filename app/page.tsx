@@ -31,19 +31,15 @@ const aboutUsListItem = (info: Info, pos: number) => {
     <MotionLi
       key={pos}
       delay={pos * 0.1}
-      className="group flex items-center gap-4 py-6 lg:gap-8"
+      className="group flex items-center justify-center gap-4 py-6 lg:gap-8"
     >
-      <span className="w-16 shrink-0 text-6xl font-black text-[#92B4D4]/15 transition-colors duration-300 group-hover:text-[#3B9EFF] lg:w-24 lg:text-7xl">
-        {String(pos + 1).padStart(2, "0")}
-      </span>
-
       <div className="flex shrink-0 flex-col items-center gap-4 self-stretch">
         <div className="size-3 shrink-0 rounded-full bg-[#38547A] transition-colors duration-300 group-hover:bg-[#3B9EFF]" />
 
         <div className="w-0.5 flex-1 bg-linear-to-b from-[#38547A] to-transparent" />
       </div>
 
-      <div className="flex min-w-0 flex-1 flex-col gap-3 lg:gap-4">
+      <div className="flex min-w-0 max-w-3xl flex-1 flex-col gap-3 lg:gap-4">
         <div className="flex items-center gap-4">
           <info.icon className="size-6 shrink-0 text-[#C4D8EE] transition-colors duration-300 group-hover:text-white lg:size-7" />
 
