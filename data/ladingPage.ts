@@ -66,8 +66,8 @@ export const eventData: Info[] = [
     description:
       "Linux Installation Party ou LIP é um evento organizado pelo NECC e pelo Cesium que visa em ajudar os novos alunos a entrarem num novo ambiente de trabalho, o Linux, promovendo o software livre e o controlo da sua própria máquina.",
     imgUrl: [
-      "/images/landingPage/Lipphoto2.jpeg",
-      "/images/landingPage/Lipphoto3.jpeg"
+      "/images/landingPage/lip2.jpeg",
+      "/images/landingPage/lip3.jpeg"
     ],
   },
   {
